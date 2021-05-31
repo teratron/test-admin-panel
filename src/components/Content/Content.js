@@ -4,7 +4,7 @@ import './Content.css';
 
 function Content() {
     return (
-        <section className="main-content">
+        <section className="App-main-content">
             <ChartLine/>
         </section>
     );

@@ -3,7 +3,7 @@ import './Sidebar.css';
 
 function Sidebar() {
     return (
-        <aside className="main-sidebar">sidebar</aside>
+        <aside className="App-main-sidebar">sidebar</aside>
     );
 }
 
