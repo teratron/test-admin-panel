@@ -132,7 +132,6 @@ progress {
 
 textarea {
   overflow: auto;
-  resize: vertical;
 }
 
 [type="checkbox"],

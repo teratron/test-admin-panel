@@ -28,6 +28,10 @@ pre, code, kbd, samp {
     background: #b3d4fc;
 }
 
+textarea {
+    resize: vertical;
+}
+
 hr {
     display: block;
     height: 1px;
