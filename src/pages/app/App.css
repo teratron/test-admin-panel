@@ -3,6 +3,7 @@
   grid-template-columns: auto;
   grid-template-rows: 88px auto;
   min-height: 100vh;
+  z-index: 10;
 }
 
 /*

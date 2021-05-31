@@ -3,6 +3,8 @@
     color: white;
     display: grid;
     grid-template-columns: 60px 50px auto 50px 60px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, .2);
+    z-index: 50;
 }
 
 .App-header-logo {

@@ -1,3 +1,4 @@
 .App-main-content {
     background-color: white;
+    z-index: 30;
 }
