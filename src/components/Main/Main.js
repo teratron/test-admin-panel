@@ -1,10 +1,13 @@
 import React from "react";
 import './Main.css';
+import Sidebar from "../../components/Sidebar/Sidebar";
+import Content from "../../components/Content/Content";
 
 function Main() {
     return (
         <main className="App-main">
-            <aside>sidebar</aside>
+            <Sidebar/>
+            <Content/>
         </main>
     );
 }
