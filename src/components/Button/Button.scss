@@ -1,0 +1,117 @@
+.btn {
+    font {
+        size: 2rem;
+        weight: 400;
+    }
+
+    line-height: 1;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    min-width: 6rem;
+    min-height: 6rem;
+    padding: 2rem;
+    margin-bottom: 0;
+    display: inline-flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    border: {
+        width: 0;
+        style: none;
+    }
+    box-sizing: border-box;
+    border-radius: 0;
+    box-shadow: none;
+    user-select: none;
+    transition: all ease-out 0.18s;
+
+    &:hover:not(:disabled) {
+        opacity: .85;
+        box-shadow: inset 0 -4px 0 rgba(0, 0, 0, .2);
+    }
+
+    &:active:not(:disabled) {
+        box-shadow: none;
+    }
+
+    .button:hover {
+        background-color: #2bbfe0;
+        border-color: #2bbfe0;
+        box-shadow: 0 0.1rem 0.2rem 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .button:active {
+        background-color: #246d8d;
+        border-color: #246d8d;
+        box-shadow: 0 0.1rem 0.2rem 0 rgba(0, 0, 0, 0.2) inset;
+    }
+
+    &:focus {
+        outline: none !important;
+    }
+
+    /*** Bordered ***/
+    &.bordered {
+        color: var(--color-primary);
+        border: {
+            width: 1px;
+            style: solid;
+        }
+        background-color: transparent !important;
+        box-shadow: none !important;
+    }
+
+    /*** Rounded ***/
+    &.rounded {
+        border-radius: .25em !important;
+    }
+
+    /*** Shadowed ***/
+    &.shadowed {
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .2) !important;
+    }
+
+    /*** Disabled ***/
+    &:disabled {
+        cursor: default;
+        opacity: .7;
+        box-shadow: none;
+    }
+
+    /*** Primary ***/
+    &, &.primary {
+        background-color: var(--color-primary);
+        color: white;
+    }
+
+    &.primary.bordered {
+        color: var(--color-primary);
+        border-color: var(--color-primary);
+    }
+
+    /*** Secondary ***/
+    &.secondary {
+        background: var(--color-secondary);
+
+        &.bordered {
+            color: var(--color-secondary);
+            border-color: var(--color-secondary);
+        }
+    }
+
+    /*** Accent ***/
+    &.accent {
+        background: var(--color-accent);
+
+        &.bordered {
+            color: var(--color-accent);
+            border-color: var(--color-accent);
+        }
+    }
+}

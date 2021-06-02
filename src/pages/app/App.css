@@ -1,7 +1,7 @@
 .App {
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 88px auto;
+  grid-template-rows: 11rem auto;
   min-height: 100vh;
   z-index: 10;
 }
