@@ -1,11 +1,11 @@
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCoffee} from '@fortawesome/free-solid-svg-icons'
-import './Sidebar.css';
+import './sidebar.scss';
 
 function Sidebar() {
     return (
-        <aside className="App-main-sidebar">
+        <aside className="app-main-sidebar">
             <FontAwesomeIcon icon={faCoffee}/>
             sidebar
         </aside>

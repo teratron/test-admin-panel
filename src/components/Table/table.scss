@@ -1,0 +1,108 @@
+/*** Reset ***/
+table {
+    caption-side: bottom;
+    border-collapse: collapse;
+
+    &, * {
+        box-sizing: border-box;
+    }
+}
+
+tbody, thead, tfoot, tr, th, td {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+}
+
+th {
+    text-align: inherit;
+    text-align: -webkit-match-parent;
+}
+
+/*** Table ***/
+.table {
+    --table-bg: transparent;
+    --table-color: #212529;
+    --table-border-color: #dee2e6;
+    --table-accent-bg: transparent;
+    --table-striped-color: #212529;
+    --table-striped-bg: rgba(0, 0, 0, 0.05);
+    --table-active-color: #212529;
+    --table-active-bg: rgba(0, 0, 0, 0.1);
+    --table-hover-color: #212529;
+    --table-hover-bg: rgba(0, 0, 0, 0.075);
+    --table-border-width: 1px;
+
+    width: 100%;
+    margin-bottom: 1rem;
+    color: var(--table-color);
+    vertical-align: top;
+    border-color: var(--table-border-color);
+
+    > :not(caption) > * > * {
+        font-size: 2rem;
+        line-height: 1;
+        padding: 3.5rem 3.5rem;
+        background-color: var(--table-bg);
+        border-bottom-width: var(--table-border-width);
+        box-shadow: inset 0 0 0 9999px var(--table-accent-bg);
+    }
+
+    > :not(thead) > * > * {
+        padding: 3.5rem 3.5rem;
+    }
+
+    > thead {
+        vertical-align: bottom;
+
+        > * > * {
+            padding: 2rem;
+        }
+    }
+
+    > tbody {
+        vertical-align: inherit;
+    }
+
+    > tfoot {
+        vertical-align: top;
+    }
+
+    > :not(:last-child) > :last-child > * {
+        border-bottom-color: currentColor;
+    }
+}
+
+/*** Bordered ***/
+.table-bordered {
+    > :not(caption) > * {
+        border-width: var(--table-border-width) 0;
+
+        > * {
+            border-width: 0 var(--table-border-width);
+        }
+    }
+}
+
+/*** Borderless ***/
+.table-borderless {
+    > :not(caption) > * > * {
+        border-bottom-width: 0;
+    }
+}
+
+/*** Striped ***/
+.table-striped {
+    > tbody > tr:nth-of-type(odd) {
+        --table-accent-bg: var(--table-striped-bg);
+        color: var(--table-striped-color);
+    }
+}
+
+/*** Hovered ***/
+.table-hovered {
+    > tbody > tr:hover {
+        --table-accent-bg: var(--table-hover-bg);
+        color: var(--table-hover-color);
+    }
+}

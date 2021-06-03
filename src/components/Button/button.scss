@@ -1,0 +1,130 @@
+/*** Reset ***/
+button,
+[type=button],
+[type=submit],
+[type=reset] {
+    -webkit-appearance: button;
+}
+
+button:not(:disabled),
+[type=button]:not(:disabled),
+[type=submit]:not(:disabled),
+[type=reset]:not(:disabled) {
+    cursor: pointer;
+}
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="submit"]:-moz-focusring,
+[type="reset"]:-moz-focusring {
+    outline: 1px dotted ButtonText;
+}
+
+/*** Button ***/
+.btn {
+    --btn-border-width: 2px;
+    --btn-padding: 2rem;
+
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1;
+    /*text-transform: uppercase;*/
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    min-width: 6rem;
+    min-height: 6rem;
+    padding: var(--btn-padding);
+    margin-bottom: 0;
+    display: inline-flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    border-width: 0;
+    border-style: none;
+    box-sizing: border-box;
+    border-radius: 0;
+    box-shadow: none;
+    user-select: none;
+    /*transition: all ease-out 0.5s;*/
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+    &:hover:not(:disabled) {
+        transition: all ease-out 0.5s;
+        margin-top: -1px;
+
+        &.shadowed {
+            box-shadow: inset 0 -4px 0 rgba(0, 0, 0, .2);
+        }
+    }
+
+    &:active:not(:disabled) {
+        box-shadow: none;
+    }
+
+    &:focus {
+        outline: none !important;
+    }
+
+    &:disabled {
+        cursor: default;
+        opacity: .7;
+        box-shadow: none;
+    }
+}
+
+/*** Bordered ***/
+.btn-bordered {
+    $p: calc(var(--btn-padding) - var(--btn-border-width));
+    border-width: var(--btn-border-width);
+    border-style: solid;
+    padding-top: $p;
+    padding-bottom: $p;
+    color: var(--color-primary);
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/*** Rounded ***/
+.btn-rounded {
+    border-radius: .25em !important;
+}
+
+/*** Shadowed ***/
+.btn-shadowed {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .2) !important;
+}
+
+/*** Primary ***/
+.btn, .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn-primary.btn-bordered {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+/*** Secondary ***/
+.btn-secondary {
+    background-color: var(--color-secondary);
+
+    &.btn-bordered {
+        color: var(--color-secondary);
+        border-color: var(--color-secondary);
+    }
+}
+
+/*** Accent ***/
+.btn-accent {
+    background-color: var(--color-accent);
+
+    &.btn-bordered {
+        color: var(--color-accent);
+        border-color: var(--color-accent);
+    }
+}

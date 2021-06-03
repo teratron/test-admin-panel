@@ -1,4 +1,4 @@
-.App-header {
+.app-header {
     background-color: var(--color-primary);
     color: white;
     display: grid;
@@ -7,18 +7,18 @@
     z-index: 50;
 }
 
-.App-header-logo {
+.app-header-logo {
     height: 8vmin;
     pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .App-header-logo {
-        animation: App-header-logo-spin infinite 20s linear;
+    .app-header-logo {
+        animation: app-header-logo-spin infinite 20s linear;
     }
 }
 
-@keyframes App-header-logo-spin {
+@keyframes app-header-logo-spin {
     from {
         transform: rotate(0deg);
     }
