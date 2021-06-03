@@ -1,17 +1,17 @@
 import React from 'react';
-import './button.scss';
-import '../Theme/default.css';
 
-function Index(props = {bordered: '', rounded: '', shadowed: ''}) {
+import './button.scss';
+
+function Button(props = {bordered: '', rounded: '', shadowed: ''}) {
     const text = props.text ? props.text : 'Ok';
     const type = props.type ? props.type : 'button';
     const color = props.color ? ' btn-' + props.color : ' btn-primary';
-    const size = props.size ? props.size : ' btn-normal';
+    const size = props.size ? ' btn-' + props.size : ' btn-normal';
     const style = props.style ? props.style : {};
     const bordered = props.bordered ? ' btn-bordered' : '';
     const rounded = props.rounded ? ' btn-rounded' : '';
     const shadowed = props.shadowed ? ' btn-shadowed' : '';
-    const className = `btn ${color} ${size}${bordered}${rounded}${shadowed}`;
+    const className = `btn${color}${size}${bordered}${rounded}${shadowed}`;
 
     const onClickHandler = function () {
         if (typeof props.onClick !== 'undefined') {
@@ -31,4 +31,4 @@ function Index(props = {bordered: '', rounded: '', shadowed: ''}) {
     )
 }
 
-export default Index;
+export default Button;

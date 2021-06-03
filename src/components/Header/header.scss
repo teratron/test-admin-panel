@@ -3,26 +3,10 @@
     color: white;
     display: grid;
     grid-template-columns: 60px 50px auto 50px 60px;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, .2);
     z-index: 50;
 }
 
 .app-header-logo {
     height: 8vmin;
     pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .app-header-logo {
-        animation: app-header-logo-spin infinite 20s linear;
-    }
-}
-
-@keyframes app-header-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
 }

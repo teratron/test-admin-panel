@@ -1,6 +1,6 @@
 import React from 'react';
+
 import './table.scss';
-import '../Theme/default.css';
 
 function Table(props = {bordered: '', borderless: '', striped: '', hovered: ''}) {
     const bordered = props.bordered ? ' table-bordered' : '';

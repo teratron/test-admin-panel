@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import '../components/Theme/default';
 
 /*** Normalize ***/
 ::selection,
@@ -164,6 +165,18 @@ audio, canvas, iframe, img, svg, video {
 }
 
 /*** Reset ***/
+:root {
+    /* Z-index */
+    --zindex-dropdown: 1000;
+    --zindex-sticky: 2000;
+    --zindex-fixed: 3000;
+    --zindex-modal-backdrop: 4000;
+    --zindex-offcanvas: 5000;
+    --zindex-modal: 6000;
+    --zindex-popover: 7000;
+    --zindex-tooltip: 8000;
+}
+
 html {
     font-size: .5em; /* 8px */
     line-height: 1rem;
@@ -189,11 +202,6 @@ body, input, textarea, select {
 
 pre, code, kbd, samp {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
-::selection,
-::-moz-selection {
-    background: #b3d4fc;
 }
 
 textarea {
