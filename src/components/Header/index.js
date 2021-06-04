@@ -1,13 +1,15 @@
 import React from 'react';
 
+import LoginControl from '../Login';
 import logo from '../../images/logo.svg';
 import './header.scss';
 
 function Header() {
     return (
         <header className="app-header">
-            <img src={logo} className="app-header-logo" alt="logo"/>
-            <a href="https://reactjs.org" className="app-link">Logout</a>
+            <div><img src={logo} className="app-header-logo" alt="logo"/></div>
+            <div/>
+            <div><LoginControl/></div>
         </header>
     );
 }

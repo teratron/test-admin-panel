@@ -1,8 +1,11 @@
 /*** Card ***/
 .card {
+    --card-border-width: 0;
+    --card-border-radius: 3px;
+
     background-color: white;
-    box-shadow: .5rem 0 1rem 0 rgba(0, 0, 0, .2);
-    border-radius: 4px;
+    box-shadow: 0 .5rem 1rem 0 rgba(0, 0, 0, .2);
+    border-radius: var(--card-border-radius);
     padding: 2rem;
 
     &, * {

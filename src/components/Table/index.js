@@ -2,7 +2,7 @@ import React from 'react';
 
 import './table.scss';
 
-function Table(props = {bordered: '', borderless: '', striped: '', hovered: ''}) {
+function Table(props) {
     const bordered = props.bordered ? ' table-bordered' : '';
     const borderless = props.borderless ? ' table-borderless' : '';
     const striped = props.striped ? ' table-striped' : '';
@@ -48,5 +48,12 @@ function Table(props = {bordered: '', borderless: '', striped: '', hovered: ''})
         </table>
     );
 }
+
+Table.defaultProps = {
+    bordered: '',
+    borderless: '',
+    striped: '',
+    hovered: ''
+};
 
 export default Table;

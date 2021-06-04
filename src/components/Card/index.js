@@ -1,5 +1,6 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
 import './card.scss';
 
 function Card(props) {
@@ -12,9 +13,7 @@ function Card(props) {
             content = props.content;
             break;
         default:
-            content = () => {
-                return null;
-            }
+            content = () => null;
             break;
     }
 
@@ -23,6 +22,13 @@ function Card(props) {
             {content}
         </div>
     );
+}
+
+Card.propTypes = {
+    content: PropTypes.oneOfType([
+        PropTypes.func,
+        PropTypes.object
+    ])
 }
 
 export default Card;

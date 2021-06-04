@@ -2,7 +2,7 @@ import React from 'react';
 
 import './button.scss';
 
-function Button(props = {bordered: '', rounded: '', shadowed: ''}) {
+function Button(props) {
     const text = props.text ? props.text : 'Ok';
     const type = props.type ? props.type : 'button';
     const color = props.color ? ' btn-' + props.color : ' btn-primary';
@@ -13,10 +13,8 @@ function Button(props = {bordered: '', rounded: '', shadowed: ''}) {
     const shadowed = props.shadowed ? ' btn-shadowed' : '';
     const className = `btn${color}${size}${bordered}${rounded}${shadowed}`;
 
-    const onClickHandler = function () {
-        if (typeof props.onClick !== 'undefined') {
-            props.onClick();
-        }
+    const onClick = function () {
+        if (typeof props.onClick !== 'undefined') props.onClick();
     }
 
     return (
@@ -24,11 +22,17 @@ function Button(props = {bordered: '', rounded: '', shadowed: ''}) {
             type={type}
             className={className}
             style={style}
-            onClick={onClickHandler}
+            onClick={onClick}
             disabled={props.disabled}>
             {text}
         </button>
     )
 }
+
+Button.defaultProps = {
+    bordered: '',
+    rounded: '',
+    shadowed: ''
+};
 
 export default Button;
