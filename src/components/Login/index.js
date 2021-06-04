@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Button from "../Button";
+import Button from '../Button';
 
 class LoginControl extends React.Component {
     constructor(props) {
@@ -19,43 +19,19 @@ class LoginControl extends React.Component {
     }
 
     render() {
-        const isLoggedIn = this.state.isLoggedIn;
-        let button;
-
-        if (isLoggedIn) {
-            button = <LogoutButton onClick={this.handleLogoutClick}/>;
-        } else {
-            button = <LoginButton onClick={this.handleLoginClick}/>;
+        if (this.state.isLoggedIn) {
+            return <LogoutButton onClick={this.handleLogoutClick}/>;
         }
-
-        return (
-            <>
-                <Greeting isLoggedIn={isLoggedIn}/>
-                {button}
-            </>
-        );
+        return <LoginButton onClick={this.handleLoginClick}/>;
     }
 }
 
-function Greeting(props) {
-    if (props.isLoggedIn) return <UserGreeting/>;
-    return <GuestGreeting/>;
-}
-
 function LoginButton(props) {
-    return <Button text='Login' type='submit' onClick={props.onClick}/>;
+    return <Button text="Login" type="submit" color="secondary" onClick={props.onClick}/>;
 }
 
 function LogoutButton(props) {
-    return <Button text='Logout' type='submit' onClick={props.onClick}/>;
-}
-
-function UserGreeting() {
-    return <h1>Welcome back!</h1>;
-}
-
-function GuestGreeting() {
-    return <h1>Please sign up.</h1>;
+    return <Button text="Logout" type="submit" onClick={props.onClick}/>;
 }
 
 export default LoginControl

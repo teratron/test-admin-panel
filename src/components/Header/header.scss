@@ -2,11 +2,35 @@
     background-color: var(--color-primary);
     color: white;
     display: grid;
-    grid-template-columns: 60px 50px auto 50px 60px;
+    grid-template-columns: max-content 1fr max-content;
+    grid-template-rows: var(--app-header-height);
+    grid-gap: 0 1rem;
     z-index: 50;
-}
 
-.app-header-logo {
-    height: 8vmin;
-    pointer-events: none;
+    > * {
+        display: grid;
+        grid-auto-flow: column;
+        align-items: center;
+    }
+
+    > :first-child {
+        padding-left: var(--app-layout-gutter);
+        justify-self: start;
+    }
+
+    > :last-child {
+        padding-right: var(--app-layout-gutter);
+        justify-self: end;
+    }
+
+    .logo {
+        height: 4.5em;
+        pointer-events: none;
+    }
+
+    .title {
+        font-size: 3rem;
+        font-weight: 500;
+        margin: 0;
+    }
 }

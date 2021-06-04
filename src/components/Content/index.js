@@ -11,7 +11,7 @@ function Content() {
         <section className="app-main-content">
             <Card content={ChartLine}/>
             <Card content={<Table bordered striped/>}/>
-            <Button text="CONFIGURING REPORT" color="secondary" bordered rounded shadowed/> {/* disabled*/}
+            <Button text="CONFIGURING REPORT" color="secondary" bordered rounded shadowed/>
         </section>
     );
 }

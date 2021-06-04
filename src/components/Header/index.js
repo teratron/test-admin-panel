@@ -7,7 +7,10 @@ import './header.scss';
 function Header() {
     return (
         <header className="app-header">
-            <div><img src={logo} className="app-header-logo" alt="logo"/></div>
+            <div>
+                <img src={logo} className="logo" alt="logo"/>
+                <h1 className="title">Page Title</h1>
+            </div>
             <div/>
             <div><LoginControl/></div>
         </header>

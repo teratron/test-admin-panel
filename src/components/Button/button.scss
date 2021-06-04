@@ -1,23 +1,28 @@
-/*** Reset ***/
-button,
-[type=button],
-[type=submit],
-[type=reset] {
-    -webkit-appearance: button;
+
+.btn-primary {
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
 }
 
-button:not(:disabled),
-[type=button]:not(:disabled),
-[type=submit]:not(:disabled),
-[type=reset]:not(:disabled) {
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
     cursor: pointer;
-}
-
-button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="submit"]:-moz-focusring,
-[type="reset"]:-moz-focusring {
-    outline: 1px dotted ButtonText;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 /*** Button ***/
@@ -44,7 +49,7 @@ button:-moz-focusring,
     justify-content: center;
     border-width: 0;
     border-style: none;
-    box-sizing: border-box;
+    /*box-sizing: border-box;*/
     border-radius: 0;
     box-shadow: none;
     user-select: none;
