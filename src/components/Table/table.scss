@@ -2,10 +2,6 @@
 table {
     caption-side: bottom;
     border-collapse: collapse;
-
-    &, * {
-        box-sizing: border-box;
-    }
 }
 
 tbody, thead, tfoot, tr, th, td {

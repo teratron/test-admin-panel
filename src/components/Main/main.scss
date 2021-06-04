@@ -2,5 +2,5 @@
     background-color: white;
     display: grid;
     grid-template-columns: 360px auto;
-    z-index: 20;
+    z-index: var(--zindex-main);
 }

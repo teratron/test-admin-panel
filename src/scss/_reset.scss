@@ -3,22 +3,43 @@
 }
 
 html {
+    font-size: .5em; /* 8px */
+    line-height: 1rem;
+    height: 100vh;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    line-height: 1.15;
 }
 
-h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
+body {
+    background-color: #fff;
+    color: #222;
+    font-size: 2rem;
+    line-height: 3rem;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    z-index: var(--zindex-body);
+}
+
+body, input, textarea, select {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+pre, code, kbd, samp {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 hr {
-    box-sizing: content-box;
-    height: 0;
-    overflow: visible;
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
 }
 
 a {
@@ -102,7 +123,6 @@ fieldset {
 }
 
 legend {
-    box-sizing: border-box;
     color: inherit;
     display: table;
     max-width: 100%;
@@ -116,11 +136,11 @@ progress {
 
 textarea {
     overflow: auto;
+    resize: vertical;
 }
 
 [type="checkbox"],
 [type="radio"] {
-    box-sizing: border-box;
     padding: 0;
 }
 
@@ -132,11 +152,12 @@ textarea {
 [type="search"] {
     -webkit-appearance: textfield;
     outline-offset: -2px;
-}
 
-[type="search"]::-webkit-search-decoration,
-[type="search"]::-webkit-search-cancel-button {
-    -webkit-appearance: none;
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+    }
+
 }
 
 ::-webkit-file-upload-button {
@@ -166,5 +187,6 @@ audio, canvas, iframe, img, svg, video {
 
 ::selection,
 ::-moz-selection {
+    background-color: #b3d4fc;
     text-shadow: none;
 }

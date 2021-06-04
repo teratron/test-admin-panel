@@ -1,6 +1,5 @@
 .app-main-sidebar {
-    background-color: #fafafa;
+    background-color: var(--color-grey-light);
     box-shadow: .5rem 0 1rem 0 rgba(0, 0, 0, .2);
-    box-sizing: border-box;
-    z-index: 40;
+    z-index: var(--zindex-sidebar);
 }

@@ -1,5 +1,5 @@
 .app-main-content {
     background-color: white;
     padding: 0 2rem;
-    z-index: 30;
+    z-index: var(--zindex-content);
 }

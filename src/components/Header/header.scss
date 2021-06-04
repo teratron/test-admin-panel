@@ -5,7 +5,7 @@
     grid-template-columns: max-content 1fr max-content;
     grid-template-rows: var(--app-header-height);
     grid-gap: 0 1rem;
-    z-index: 50;
+    z-index: var(--zindex-header);
 
     > * {
         display: grid;
