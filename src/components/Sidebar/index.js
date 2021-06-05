@@ -6,7 +6,7 @@ import './sidebar.scss';
 
 function Sidebar() {
     return (
-        <aside className="app-main-sidebar">
+        <aside className="main-sidebar">
             <FontAwesomeIcon icon={faCoffee}/>
             sidebar
         </aside>

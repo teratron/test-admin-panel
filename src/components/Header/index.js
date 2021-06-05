@@ -12,7 +12,9 @@ function Header() {
                 <h1 className="title">Page Title</h1>
             </div>
             <div/>
-            <div><LoginControl/></div>
+            <div>
+                <LoginControl/>
+            </div>
         </header>
     );
 }

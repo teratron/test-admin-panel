@@ -1,0 +1,18 @@
+.navbar {
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    grid-template-rows: var(--app-navbar-height);
+    grid-gap: 0 1rem;
+    z-index: var(--zindex-header);
+}
+
+.navbar,
+.navbar-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.navbar-secondary {
+    background-color: var(--color-secondary);
+    color: white;
+}

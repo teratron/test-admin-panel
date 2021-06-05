@@ -5,7 +5,7 @@ import './content.scss';
 
 function Content() {
     return (
-        <section className="app-main-content">
+        <section className="main-content">
             <Dashboard/>
         </section>
     );

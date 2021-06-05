@@ -7,7 +7,6 @@ function Button(props) {
     const type = props.type ? props.type : 'button';
     const color = props.color ? ' btn-' + props.color : ' btn-primary';
     const size = props.size ? ' btn-' + props.size : ' btn-normal';
-    const style = props.style ? props.style : {};
     const bordered = props.bordered ? ' btn-bordered' : '';
     const rounded = props.rounded ? ' btn-rounded' : '';
     const shadowed = props.shadowed ? ' btn-shadowed' : '';
@@ -21,7 +20,6 @@ function Button(props) {
         <button
             type={type}
             className={className}
-            style={style}
             onClick={onClick}
             disabled={props.disabled}>
             {text}
