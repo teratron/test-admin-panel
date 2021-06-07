@@ -1,13 +1,7 @@
-/*** Card ***/
 .card {
-    --card-border-width: 0;
-    --card-border-radius: 3px;
-
     background-color: white;
-    box-shadow: 0 .5rem 1rem 0 rgba(0, 0, 0, .2);
+    border: var(--card-border-width) solid var(--color-grey);
     border-radius: var(--card-border-radius);
-    padding: 2rem;
-
-    &, * {
-    }
+    box-shadow: 0 .3rem .5rem 0 rgba(0, 0, 0, .3);
+    padding: 4rem;
 }

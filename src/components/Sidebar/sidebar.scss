@@ -1,5 +1,13 @@
 .main-sidebar {
     background-color: var(--color-grey-light);
-    box-shadow: .5rem 0 1rem 0 rgba(0, 0, 0, .2);
     z-index: var(--zindex-sidebar);
+    box-shadow: .4rem 0 .8rem 0 rgba(0, 0, 0, .3);
+
+    .nav {
+        position: sticky;
+        top: 0;
+        bottom: auto;
+        left: 0;
+        right: 0;
+    }
 }

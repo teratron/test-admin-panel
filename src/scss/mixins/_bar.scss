@@ -1,0 +1,24 @@
+@mixin bar($height, $gap, $gutter) {
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    grid-template-rows: var(--app-header-height);
+    grid-gap: 0 $gap;
+    align-content: center;
+    align-items: center;
+
+    > * {
+        display: grid;
+        grid-auto-flow: column;
+        align-items: center;
+    }
+
+    > :first-child {
+        padding-left: $gutter;
+        justify-self: start;
+    }
+
+    > :last-child:not(:first-child) {
+        padding-right: $gutter;
+        justify-self: end;
+    }
+}

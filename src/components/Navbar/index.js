@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Tab from '../Tab';
 import './navbar.scss';
 
 function Navbar(props) {
@@ -8,23 +9,25 @@ function Navbar(props) {
     const tabbed = props.tabbed ? ' navbar-tabbed' : '';
     const sticking = props.sticking ? ' navbar-sticking' : '';
     const shadowed = props.shadowed ? ' navbar-shadowed' : '';
-    const className = `navbar${color}${tabbed}${sticking}${shadowed}`;
 
     return (
-        <header className={className}>
-            <div>
-                <h1 className="title">{title}</h1>
-            </div>
-            <div/>
-            <div/>
-        </header>
+        <>
+            <header className={`navbar${color}${tabbed}${sticking}${shadowed}`}>
+                <div>
+                    <h1 className="title">{title}</h1>
+                </div>
+                <div/>
+                <div/>
+            </header>
+            <Tab/>
+        </>
     )
 }
 
 Navbar.defaultProps = {
     tabbed: '',
     sticking: '',
-    shadowed: ''
+
 };
 
 export default Navbar;

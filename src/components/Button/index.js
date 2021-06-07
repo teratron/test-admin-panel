@@ -10,7 +10,6 @@ function Button(props) {
     const bordered = props.bordered ? ' btn-bordered' : '';
     const rounded = props.rounded ? ' btn-rounded' : '';
     const shadowed = props.shadowed ? ' btn-shadowed' : '';
-    const className = `btn${color}${size}${bordered}${rounded}${shadowed}`;
 
     const onClick = function () {
         if (typeof props.onClick !== 'undefined') props.onClick();
@@ -19,7 +18,7 @@ function Button(props) {
     return (
         <button
             type={type}
-            className={className}
+            className={`btn${color}${size}${bordered}${rounded}${shadowed}`}
             onClick={onClick}
             disabled={props.disabled}>
             {text}

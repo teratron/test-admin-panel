@@ -7,10 +7,9 @@ function Table(props) {
     const borderless = props.borderless ? ' table-borderless' : '';
     const striped = props.striped ? ' table-striped' : '';
     const hovered = props.hovered ? ' table-hovered' : '';
-    const className = `table${bordered}${borderless}${striped}${hovered}`;
 
     return (
-        <table className={className}>
+        <table className={`table${bordered}${borderless}${striped}${hovered}`}>
             <thead>
             <tr>
                 <th scope="col">#</th>
