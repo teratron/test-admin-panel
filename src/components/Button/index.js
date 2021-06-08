@@ -5,11 +5,11 @@ import './button.scss';
 function Button(props) {
     const text = props.text ? props.text : 'Ok';
     const type = props.type ? props.type : 'button';
-    const color = props.color ? ' btn-' + props.color : ' btn-primary';
-    const size = props.size ? ' btn-' + props.size : ' btn-normal';
-    const bordered = props.bordered ? ' btn-bordered' : '';
-    const rounded = props.rounded ? ' btn-rounded' : '';
-    const shadowed = props.shadowed ? ' btn-shadowed' : '';
+    const color = props.color ? ' -' + props.color : ' -primary';
+    const size = props.size ? ' -' + props.size : ' -normal';
+    const bordered = props.bordered ? ' -bordered' : '';
+    const rounded = props.rounded ? ' -rounded' : '';
+    const shadowed = props.shadowed ? ' -shadowed' : '';
 
     const onClick = function () {
         if (typeof props.onClick !== 'undefined') props.onClick();

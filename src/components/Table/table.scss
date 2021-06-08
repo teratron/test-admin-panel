@@ -5,9 +5,7 @@ table {
 }
 
 tbody, thead, tfoot, tr, th, td {
-    border-color: inherit;
-    border-style: solid;
-    border-width: 0;
+    border: 0 solid inherit;
 }
 
 th {
@@ -29,11 +27,11 @@ th {
     --table-hover-bg: rgba(0, 0, 0, 0.075);
     --table-border-width: 1px;
 
+    color: var(--table-color);
+    border-color: var(--table-border-color);
     width: 100%;
     margin-bottom: 1rem;
-    color: var(--table-color);
     vertical-align: top;
-    border-color: var(--table-border-color);
 
     > :not(caption) > * > * {
         font-size: 2rem;

@@ -8,7 +8,7 @@ import './content.scss';
 function Support() {
     return (
         <>
-            <header className="content-header">
+            <header id="content-header" className="content-header">
                 <h1 className="title">Support</h1>
             </header>
             <Card content={<Table bordered striped/>}/>

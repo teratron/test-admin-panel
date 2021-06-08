@@ -14,7 +14,7 @@ function Tab(props) {
 
     return (
         <nav className="tab">
-            <a href="/#" className="tab-item active">Chart</a>
+            <a href="/#content-header" className="tab-item active">Chart</a>
             <a href="/#" className="tab-item">Report</a>
         </nav>
     )

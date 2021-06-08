@@ -3,8 +3,8 @@
 }
 
 html {
-    font-size: .5em; /* 8px */
-    line-height: 1rem;
+    font-size: var(--html-font-size);
+    line-height: 1;
     height: 100vh;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;

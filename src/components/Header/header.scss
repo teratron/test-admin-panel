@@ -4,7 +4,16 @@
     background-color: var(--color-primary);
     color: white;
     z-index: var(--zindex-header);
-    @include bar(var(--app-header-height), 1rem, var(--app-layout-gutter));
+    @include bar(var(--app-header-height), 1rem /*, var(--app-layout-gutter)*/
+    );
+
+    > :first-child {
+        padding-left: var(--app-layout-gutter);
+    }
+
+    > :last-child:not(:first-child) {
+        padding-right: var(--app-layout-gutter);
+    }
 
     .logo {
         height: 3.5em;
