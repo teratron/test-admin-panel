@@ -3,14 +3,15 @@ import React from 'react';
 import './table.scss';
 
 function Table(props) {
-    const bordered = props.bordered ? ' table-bordered' : '';
-    const borderless = props.borderless ? ' table-borderless' : '';
-    const striped = props.striped ? ' table-striped' : '';
-    const hovered = props.hovered ? ' table-hovered' : '';
-
     return (
-        <table className={`table${bordered}${borderless}${striped}${hovered}`}>
+        <table className="table">
             <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">First</th>
@@ -43,16 +44,14 @@ function Table(props) {
                 <td colSpan="2">Larry the Bird</td>
                 <td>@twitter</td>
             </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td colSpan="2">Larry the Bird</td>
+                <td>@twitter</td>
+            </tr>
             </tfoot>
         </table>
     );
 }
-
-Table.defaultProps = {
-    bordered: '',
-    borderless: '',
-    striped: '',
-    hovered: ''
-};
 
 export default Table;

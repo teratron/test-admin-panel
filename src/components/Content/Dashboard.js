@@ -22,16 +22,18 @@ function Dashboard() {
 
 function DashboardChart() {
     return (
-        <>
-            <Button text="CONFIGURING REPORT" color="secondary" rounded shadowed/>
-            <Button text="CONFIGURING REPORT" color="primary" bordered rounded/>
-            <Button text="CONFIGURING REPORT" color="accent" rounded shadowed/>
+        <React.Fragment>
+            <Button text="Configuring report" color="secondary" rounded shadowed/>
+            <Button text="Configuring report" color="primary" bordered rounded/>
+            <Button text="Configuring report" color="accent" rounded shadowed/>
             <Card content={ChartLine}/>
-            <Card content={<Table bordered striped/>}/>
-        </>
+            <Card content={Table}/>
+            <Card content={Table}/>
+        </React.Fragment>
     )
 }
 
+//onClick={window.alert("+++++++++")}
 function DashboardReport() {
     return (
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore

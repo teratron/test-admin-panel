@@ -10,16 +10,19 @@ function Button(props) {
     const bordered = props.bordered ? ' -bordered' : '';
     const rounded = props.rounded ? ' -rounded' : '';
     const shadowed = props.shadowed ? ' -shadowed' : '';
+    const linked = props.linked ? ' -linked' : '';
 
-    const onClick = function () {
-        if (typeof props.onClick !== 'undefined') props.onClick();
+    const onClickHandler = function () {
+        if (typeof props.onClick !== 'undefined') {
+            props.onClick();
+        }
     }
 
     return (
         <button
             type={type}
-            className={`btn${color}${size}${bordered}${rounded}${shadowed}`}
-            onClick={onClick}
+            className={`btn${color}${size}${bordered}${rounded}${shadowed}${linked}`}
+            onClick={onClickHandler}
             disabled={props.disabled}>
             {text}
         </button>
@@ -29,7 +32,8 @@ function Button(props) {
 Button.defaultProps = {
     bordered: '',
     rounded: '',
-    shadowed: ''
+    shadowed: '',
+    linked: ''
 };
 
 export default Button;

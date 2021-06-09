@@ -1,7 +1,11 @@
 .card {
+    --card-gutter: 4rem;
+    --card-border-width: 1px;
+    --card-border-radius: .5rem;
+
     background-color: white;
-    border: var(--card-border-width) solid var(--color-grey);
+    border: var(--card-border-width) solid var(--color-grey-light);
     border-radius: var(--card-border-radius);
+    padding: var(--card-gutter);
     box-shadow: 0 .3rem .5rem 0 rgba(0, 0, 0, .3);
-    padding: 4rem;
 }

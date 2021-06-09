@@ -11,7 +11,7 @@ function Support() {
             <header id="content-header" className="content-header">
                 <h1 className="title">Support</h1>
             </header>
-            <Card content={<Table bordered striped/>}/>
+            <Card content={Table}/>
             <Button text="CONFIGURING REPORT" color="secondary" bordered rounded shadowed/>
         </>
     );

@@ -1,5 +1,7 @@
 .main-sidebar {
-    background-color: var(--color-grey-light);
+    --color-sidebar-bg: #fafafa;
+
+    background-color: var(--color-sidebar-bg);
     z-index: var(--zindex-sidebar);
     box-shadow: .4rem 0 .8rem 0 rgba(0, 0, 0, .3);
 
