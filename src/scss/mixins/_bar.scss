@@ -1,7 +1,7 @@
-@mixin bar($height, $gap, $gutter) {
+@mixin bar($height, $gap, $padding) {
     display: grid;
     grid-template-columns: max-content 1fr max-content;
-    grid-template-rows: var(--app-header-height);
+    grid-template-rows: $height;
     grid-gap: 0 $gap;
     align-content: center;
     align-items: center;
@@ -13,12 +13,12 @@
     }
 
     > :first-child {
-        padding-left: $gutter;
+        padding-left: $padding;
         justify-self: start;
     }
 
     > :last-child:not(:first-child) {
-        padding-right: $gutter;
+        padding-right: $padding;
         justify-self: end;
     }
 }

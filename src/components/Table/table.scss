@@ -1,14 +1,14 @@
 .table {
     --table-bg: transparent;
-    --table-color: #222;
+    --table-color: #333;
     --table-border-color: #ddd;
     --table-striped-bg: rgba(0, 0, 0, 0.05);
     --table-hover-bg: rgba(0, 0, 0, 0.075);
     --table-active-bg: rgba(0, 0, 0, 0.1);
 
     --table-font-size: 2rem;
-    --table-gutter: 3.5rem;
-    --table-gutter-min: 2rem;
+    --table-padding: 3.5rem;
+    --table-padding-min: 2rem;
     --table-border-width: 1px;
 
     color: var(--table-color);
@@ -26,8 +26,8 @@
         > tr > * {
             font-size: var(--table-font-size);
             line-height: 1;
-            padding-right: var(--table-gutter);
-            padding-left: var(--table-gutter);
+            padding-right: var(--table-padding);
+            padding-left: var(--table-padding);
             background-color: var(--table-bg);
         }
 
@@ -43,8 +43,8 @@
     > thead,
     > tfoot {
         > tr > * {
-            padding-top: var(--table-gutter-min);
-            padding-bottom: var(--table-gutter-min);
+            padding-top: var(--table-padding-min);
+            padding-bottom: var(--table-padding-min);
         }
     }
 
@@ -56,8 +56,8 @@
         vertical-align: inherit;
 
         > tr > * {
-            padding-top: var(--table-gutter);
-            padding-bottom: var(--table-gutter);
+            padding-top: var(--table-padding);
+            padding-bottom: var(--table-padding);
         }
     }
 

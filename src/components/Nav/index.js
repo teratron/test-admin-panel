@@ -6,14 +6,14 @@ import './nav.scss';
 
 function Nav() {
     return (
-        <nav className="nav nav-column">
+        <nav className="nav">
             <a href="/#" className="nav-item active">
                 <FontAwesomeIcon icon={faTachometerAlt}/>
                 <span>Dashboard</span>
             </a>
             <a href="/#" className="nav-item">
                 <FontAwesomeIcon icon={faLifeRing}/>
-                <span>Home</span>
+                <span>Support</span>
             </a>
         </nav>
     )

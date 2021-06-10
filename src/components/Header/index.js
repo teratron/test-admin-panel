@@ -11,7 +11,6 @@ function Header() {
                 <img src={logo} className="logo" alt="logo"/>
                 <h1 className="title">Page Title</h1>
             </div>
-            <div/>
             <div>
                 <LoginControl/>
             </div>

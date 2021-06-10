@@ -13,8 +13,8 @@ html {
 }
 
 body {
-    background-color: #fff;
-    color: #222;
+    background-color: white;
+    color: var(--color-dark);
     font-size: 2rem;
     line-height: 3rem;
     min-height: 100vh;
@@ -88,14 +88,6 @@ button, input, optgroup, select, textarea {
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
-}
-
-button, input {
-    overflow: visible;
-}
-
-button, select {
-    text-transform: none;
 }
 
 button,

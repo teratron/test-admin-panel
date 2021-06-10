@@ -1,20 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@use "sass:color";
 
 :root {
     /* Colors */
     --color-primary: #036647;
-    --color-primary-dark: #03432f;
-    --color-primary-light: #06ac78;
-    //--color-primary-light: color.scale(var(--color-primary), $lightness: 50%);
+    --color-primary-dark: #035a3f;
+    --color-primary-light: #009466;
     --color-primary-font: white;
 
 
     --color-secondary: #7ba63d;
     --color-secondary-dark: #668630;
-    --color-secondary-light: #9cd254;
-    //$secondary: var(--color-secondary);
-    //--color-secondary-light: color.scale($secondary, $blackness: 10%);
+    --color-secondary-light: #96cb4b;
     --color-secondary-font: white;
 
     --color-accent: #725ac1;
@@ -38,6 +34,6 @@
     --color-error-font: white;
 
     --color-grey: #aaa;
-    --color-grey-dark: #333;
-    --color-grey-light: #eee;
+    --color-dark: #222;
+    --color-light: #eee;
 }

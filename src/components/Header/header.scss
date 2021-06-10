@@ -2,12 +2,12 @@
 
 .app-header {
     background-color: var(--color-primary);
-    color: white;
+    color: var(--color-primary-font);
     z-index: var(--zindex-header);
-    @include bar(var(--app-header-height), 1rem, var(--app-layout-gutter));
+    @include bar(var(--app-header-height), 0, var(--app-layout-padding));
 
     .logo {
-        height: 3.5em;
+        height: 3.4em;
         margin-right: 2rem;
         pointer-events: none;
     }

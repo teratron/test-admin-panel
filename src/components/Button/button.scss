@@ -16,6 +16,7 @@
             border-color: var(#{$color}-dark);
         }
 
+        &.-blanked,
         &.-bordered {
             color: var(#{$color});
 
@@ -65,9 +66,13 @@
         border-radius: var(--btn-border-radius) !important;
     }
 
-    &.-linked,
+    &.-blanked,
     &.-bordered {
         background-color: transparent !important;
+    }
+
+    &.-blanked {
+        border-color: transparent !important;
     }
 
     &.-shadowed:not(:active):not(:disabled) {
@@ -83,7 +88,7 @@
     &:focus {
         outline: none;
 
-        &:not(:active):not(:disabled):not(.-linked) {
+        &:not(:active):not(:disabled):not(.-blanked) {
             box-shadow: 0 0 0 5px rgba(0, 0, 0, .1);
         }
     }
@@ -92,11 +97,6 @@
         cursor: default;
         opacity: .7;
     }
-
-    /*&.-bordered:not(:focus),
-    &.linked {
-        box-shadow: none !important;
-    }*/
 
     /* Colors */
     @each $color in (primary, secondary, accent, success, warning, error) {
@@ -107,4 +107,3 @@
         @extend #{"&.-primary"};
     }
 }
-

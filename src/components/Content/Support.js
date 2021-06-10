@@ -7,13 +7,13 @@ import './content.scss';
 
 function Support() {
     return (
-        <>
-            <header id="content-header" className="content-header">
+        <React.Fragment>
+            {/*<header id="content-header" className="content-header">
                 <h1 className="title">Support</h1>
-            </header>
+            </header>*/}
             <Card content={Table}/>
             <Button text="CONFIGURING REPORT" color="secondary" bordered rounded shadowed/>
-        </>
+        </React.Fragment>
     );
 }
 

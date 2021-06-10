@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Tab from '../Tab';
 import ChartLine from '../Chart/Line';
 import Button from '../Button';
 import Table from '../Table';
@@ -9,14 +8,10 @@ import './content.scss';
 
 function Dashboard() {
     return (
-        <>
-            <header id="content-header" className="content-header">
-                <h1 className="title">Dashboard</h1>
-                <Tab/>
-            </header>
+        <React.StrictMode>
             <DashboardChart/>
             <DashboardReport/>
-        </>
+        </React.StrictMode>
     );
 }
 
@@ -25,6 +20,7 @@ function DashboardChart() {
         <React.Fragment>
             <Button text="Configuring report" color="secondary" rounded shadowed/>
             <Button text="Configuring report" color="primary" bordered rounded/>
+            <Button text="Configuring report" color="accent" rounded shadowed blanked/>
             <Button text="Configuring report" color="accent" rounded shadowed/>
             <Card content={ChartLine}/>
             <Card content={Table}/>
@@ -32,7 +28,6 @@ function DashboardChart() {
         </React.Fragment>
     )
 }
-
 //onClick={window.alert("+++++++++")}
 function DashboardReport() {
     return (
@@ -44,4 +39,5 @@ function DashboardReport() {
     )
 }
 
+export const titleDashboard = 'Dashboard';
 export default Dashboard;
