@@ -13,6 +13,10 @@ function Content() {
         title = titleSupport;
     }
 
+    const hasTab = function (state) {
+        if (state) return <Tab/>
+    }
+
     return (
         <section className="main-content">
             <header id="content-header" className="content-header">
@@ -23,10 +27,6 @@ function Content() {
             <Support/>
         </section>
     );
-}
-
-function hasTab(state) {
-    if (state) return <Tab/>;
 }
 
 export default Content;

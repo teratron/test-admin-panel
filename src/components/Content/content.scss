@@ -1,9 +1,15 @@
+@import '../../scss/mixins/navbar';
+
 .main-content {
     background-color: white;
     z-index: var(--zindex-content);
 
     > .card {
         margin: 4rem 2rem;
+    }
+
+    > .navbar {
+        @include navbar(var(--app-header-height), 0, var(--app-layout-padding));
     }
 }
 
@@ -25,7 +31,7 @@
     right: 0;
     overflow: hidden;
     z-index: var(--zindex-header);
-    box-shadow: 0 .3rem .6rem 0 rgba(0, 0, 0, .3);
+    box-shadow: 0 .2rem .4rem 0 rgba(0, 0, 0, .3);
 
     > * {
         padding: 0 var(--app-layout-padding);

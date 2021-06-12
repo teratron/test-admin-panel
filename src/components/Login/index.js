@@ -27,11 +27,11 @@ class LoginControl extends React.Component {
 }
 
 function LoginButton(props) {
-    return <Button text="Login" type="submit" onClick={props.onClick} rounded/>;
+    return <Button className="login" text="Login" type="submit" onClick={props.onClick} rounded/>;
 }
 
 function LogoutButton(props) {
-    return <Button text="Logout" type="submit" onClick={props.onClick} rounded/>;
+    return <Button className="login" text="Logout" type="submit" onClick={props.onClick} rounded/>;
 }
 
 export default LoginControl
