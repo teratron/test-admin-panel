@@ -17,7 +17,31 @@ function Tab(props) {
             <a href="/#content-header" className="tab-item active">Chart</a>
             <a href="/#content-header" className="tab-item">Report</a>
         </nav>
-    )
+    );
+}
+
+class TabControl extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleLoginClick = this.handleLoginClick.bind(this);
+        this.handleLogoutClick = this.handleLogoutClick.bind(this);
+        this.state = {isLoggedIn: false};
+    }
+
+    handleLoginClick() {
+        this.setState({isLoggedIn: true});
+    }
+
+    handleLogoutClick() {
+        this.setState({isLoggedIn: false});
+    }
+
+    render() {
+        if (this.state.isLoggedIn) {
+            return //<LogoutButton onClick={this.handleLogoutClick}/>;
+        }
+         //<LoginButton onClick={this.handleLoginClick}/>;
+    }
 }
 
 export default Tab;

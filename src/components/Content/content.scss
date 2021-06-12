@@ -1,15 +1,20 @@
-@import '../../scss/mixins/navbar';
+@import '../../scss/mixins/bar';
 
 .main-content {
     background-color: white;
     z-index: var(--zindex-content);
+
+    .bar {
+        @include bar;
+    }
 
     > .card {
         margin: 4rem 2rem;
     }
 
     > .navbar {
-        @include navbar(var(--app-header-height), 0, var(--app-layout-padding));
+        @include bar(auto, 0, var(--app-layout-padding));
+        margin-top: 4rem;
     }
 }
 

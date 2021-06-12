@@ -3,7 +3,6 @@ import React from 'react';
 import ChartLine from '../Chart/Line';
 import Button from '../Button';
 import Table from '../Table';
-import Card from '../Card';
 import './content.scss';
 
 function Dashboard() {
@@ -26,40 +25,35 @@ function dashboardChart() {
                     <Button text="Configuring report" color="secondary" rounded shadowed/>
                 </div>
             </div>
-            <Card
-                style={{width: '30%'}}
-                content={[
-                    <p>Installations on active devices</p>,
-                    <p>Installations on active devices</p>
-                ]}/>
-            {/*<Card content={ActiveDevices} style={{width: '30%'}}/>*/}
-            <Button text="Configuring report" color="primary" bordered rounded/>
-            <Button text="Configuring report" color="accent" blanked/>
-            <Button text="Configuring report" color="accent" rounded shadowed/>
-            <Card content={[Button, ChartLine]}/>
-            <Card content={Table}/>
-            <Card content={Table}/>
+            <div className="card" style={{width: '30%'}}>
+                <p><strong>Installations on active devices</strong></p>
+                <div className="bar">
+                    <output style={{fontSize: '5.5rem'}}>5,489</output>
+                    <span>+3.79% vs previous 30 days</span>
+                </div>
+            </div>
+            <div className="card">
+                <ChartLine/>
+            </div>
+            <div className="card">
+                <Table/>
+            </div>
         </React.Fragment>
     );
 }
 
-/*function ActiveDevices() {
-    return (
-        <React.Fragment>
-            <p>Installations on active devices</p>
-            <p>Installations on active devices</p>
-        </React.Fragment>
-    );
-}*/
-
-//onClick={window.alert("+++++++++")}
 function dashboardReport() {
     return (
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.</p>
+        <div className="card">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                mollit
+                anim id est laborum.</p>
+        </div>
     );
 }
 

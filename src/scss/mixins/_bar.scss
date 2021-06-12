@@ -1,9 +1,10 @@
-@mixin navbar($height, $gap, $padding) {
+@mixin bar($height: auto, $gap: 0, $padding: 0) {
     display: grid;
-    grid-template-columns: max-content 1fr max-content;
+    grid-template-columns: max-content 1fr;
     grid-template-rows: $height;
-    grid-gap: 0 $gap;
-    align-content: center;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    grid-gap: $gap;
     align-items: center;
 
     > * {
@@ -13,12 +14,14 @@
     }
 
     > :first-child {
-        padding-left: $padding;
         justify-self: start;
+        padding-left: $padding;
     }
 
+    // TODO: > :nth-child(2) {}
+
     > :last-child:not(:first-child) {
-        padding-right: $padding;
         justify-self: end;
+        padding-right: $padding;
     }
 }

@@ -1,10 +1,27 @@
+/*
+--------------------------------------------
+ For example:
+--------------------------------------------
+    <Container/>
+    <Container content={Table}/>
+    <Container content={[Button, ChartLine, 'Lorem ipsum dolor sit amet']}/>
+    <Container content={<Button text="Configuring report" color="accent" rounded shadowed/>}/>
+    <Container content={'Lorem ipsum dolor sit amet'}/>
+    <Container
+        className="card"
+        style={{width: '30%'}}
+        content={[
+            <p>Lorem ipsum dolor sit amet</p>,
+            <output>5,489</output>
+        ]}/>
+--------------------------------------------
+*/
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import './card.scss';
 
-function Card(props) {
-    const className = props.className ? 'card ' + props.className : 'card';
+function Container(props) {
+    const className = props.className ? props.className : null;
     const style = props.style ? props.style : null;
 
     return (
@@ -45,7 +62,7 @@ function getMultiContent(props) {
     );
 }
 
-Card.propTypes = {
+Container.propTypes = {
     content: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.any),
         PropTypes.bool,
@@ -55,4 +72,4 @@ Card.propTypes = {
     ])
 }
 
-export default Card;
+export default Container;
