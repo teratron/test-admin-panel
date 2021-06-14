@@ -13,7 +13,7 @@ function Button(props) {
     const className = props.className ? 'btn ' + props.className : 'btn';
     const style = props.style ? props.style : null;
 
-    const onClick = function () {
+    const handleClick = function () {
         if (typeof props.onClick !== 'undefined') {
             props.onClick();
         }
@@ -24,7 +24,7 @@ function Button(props) {
             type={type}
             className={`${className}${color}${bordered}${rounded}${shadowed}${blanked}`}
             style={style}
-            onClick={onClick}
+            onClick={handleClick}
             disabled={props.disabled}>
             {text}
         </button>

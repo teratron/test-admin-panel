@@ -6,7 +6,7 @@ import './content.scss';
 
 function Support() {
     return (
-        <div className="block">
+        <div className="pane">
             <Button text="Search" color="secondary" bordered rounded shadowed/>
             <Table/>
         </div>

@@ -3,18 +3,19 @@ import React from 'react';
 import ChartLine from '../Chart/Line';
 import Button from '../Button';
 import Table from '../Table';
+import Card from '../Card';
 import './content.scss';
 
 function Dashboard() {
     return (
         <React.Fragment>
-            {dashboardChart()}
-            {dashboardReport()}
+            <DashboardChart/>
+            <DashboardReport/>
         </React.Fragment>
     );
 }
 
-function dashboardChart() {
+function DashboardChart() {
     return (
         <React.Fragment>
             <div className="navbar">
@@ -25,26 +26,22 @@ function dashboardChart() {
                     <Button text="Configuring report" color="secondary" rounded shadowed/>
                 </div>
             </div>
-            <div className="card" style={{width: '30%'}}>
+            <Card className="" style={{width: '30%'}}>
                 <p><strong>Installations on active devices</strong></p>
-                <div className="bar">
-                    <output style={{fontSize: '5.5rem'}}>5,489</output>
+                <div className="bar" style={{alignItems: 'baseline'}}>
+                    <output style={{fontSize: '5.5rem', lineHeight: 1}}>5,489</output>
                     <span>+3.79% vs previous 30 days</span>
                 </div>
-            </div>
-            <div className="card">
-                <ChartLine/>
-            </div>
-            <div className="card">
-                <Table/>
-            </div>
+            </Card>
+            <Card content={<ChartLine/>}/>
+            <Card content={<Table/>}/>
         </React.Fragment>
     );
 }
 
-function dashboardReport() {
+function DashboardReport() {
     return (
-        <div className="card">
+        <Card>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore
                 magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -53,7 +50,7 @@ function dashboardReport() {
                 nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
                 mollit
                 anim id est laborum.</p>
-        </div>
+        </Card>
     );
 }
 

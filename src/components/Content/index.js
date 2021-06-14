@@ -5,23 +5,27 @@ import Support, {titleSupport} from './Support';
 import Tab from '../Tab';
 import './content.scss';
 
-function Content() {
-    let title;
-    if (2 !== 1) {
-        title = titleDashboard;
-    } else {
-        title = titleSupport;
-    }
+const itemTabDashboard = [
+    {id: 0, title: 'Chart', href: '/#content-header', onClick: '', active: true},
+    {id: 1, title: 'Report', href: '/#content-header', onClick: '', active: false},
+];
 
-    const hasTab = function (state) {
-        if (state) return <Tab/>
+function Content() {
+    let title = titleDashboard;
+    if (2 === 1) {
+        title = titleSupport;
     }
 
     return (
         <section className="main-content">
             <header id="content-header" className="content-header">
                 <h1 className="title">{title}</h1>
-                {hasTab(true)}
+                {title === titleDashboard &&
+                <nav className="tab">
+                    <Tab items={itemTabDashboard} activeName="active">
+                        <a href="/" className="tab-item"><React.Fragment/></a>
+                    </Tab>
+                </nav>}
             </header>
             <Dashboard/>
             <Support/>

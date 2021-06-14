@@ -12,6 +12,10 @@
         margin: 4rem 2rem;
     }
 
+    > .pane {
+        padding: 4rem var(--app-layout-padding);
+    }
+
     > .navbar {
         @include bar(auto, 0, var(--app-layout-padding));
         margin-top: 4rem;

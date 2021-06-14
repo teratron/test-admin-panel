@@ -2,25 +2,49 @@ import React from 'react';
 
 import './tab.scss';
 
-function Tab(props) {
-    /*const items = ['Chart', 'Report'];
-    //const items = props.items && props.items.length > 0 ? props.items : [];
-    for (let value of items) {
-        console.log(value);
+class Tab extends React.Component {
+    constructor(props) {
+        super(props);
+        this.active = props.activeName;
+        this.items = props.items; //[{}]
+        this.child = props.children; //<a>
+        this.state = {isLoggedIn: false};
+        this.handleClick = this.handleClick.bind(this);
     }
 
-    let d = items.map((value) => console.log(value))
-    console.log('d:', d)*/
+    handleClick() {
+        this.setState({isLoggedIn: true});
+    }
 
-    return (
-        <nav className="tab">
-            <a href="/#content-header" className="tab-item active">Chart</a>
-            <a href="/#content-header" className="tab-item">Report</a>
-        </nav>
-    );
+    //let ch = null/*Object(props.children)*/;
+    //if (React.Children.only(props.children)) ch = React.Children.map(props.children, child => child)[0]
+    //console.log(ch)
+
+    render() {
+        return (
+            <React.Fragment>
+                {this.items.map(value => (
+                    <React.Fragment key={value.id}>
+                        {React.cloneElement(this.child, {
+                            children: value.title,
+                            className: this.child.props.className + `${value.active ? ' ' + this.active : ''}`,
+                            href: value.href,
+                            onClick: this.handleClick
+                        })}
+                    </React.Fragment>
+                ))}
+            </React.Fragment>
+        )
+    }
 }
 
-class TabControl extends React.Component {
+/*function TabItem(props) {
+    return (
+        <props.child/>
+    );
+}*/
+
+/*class TabControl extends React.Component {
     constructor(props) {
         super(props);
         this.handleLoginClick = this.handleLoginClick.bind(this);
@@ -40,8 +64,8 @@ class TabControl extends React.Component {
         if (this.state.isLoggedIn) {
             return //<LogoutButton onClick={this.handleLogoutClick}/>;
         }
-         //<LoginButton onClick={this.handleLoginClick}/>;
+        //<LoginButton onClick={this.handleLoginClick}/>;
     }
-}
+}*/
 
 export default Tab;
