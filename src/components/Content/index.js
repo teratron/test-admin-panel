@@ -6,8 +6,20 @@ import Tab from '../Tab';
 import './content.scss';
 
 const itemTabDashboard = [
-    {id: 0, title: 'Chart', href: '/#content-header', onClick: '', active: true},
-    {id: 1, title: 'Report', href: '/#content-header', onClick: '', active: false},
+    {
+        id: 0,
+        title: 'Chart',
+        href: '/#content-header',
+        onClick: '',
+        active: true
+    },
+    {
+        id: 1,
+        title: 'Report',
+        href: '/#content-header',
+        onClick: '',
+        active: false
+    }
 ];
 
 function Content() {
