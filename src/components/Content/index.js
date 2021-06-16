@@ -11,14 +11,14 @@ const itemTabDashboard = [
         title: 'Chart',
         href: '/#content-header',
         onClick: '',
-        active: true
+        isActive: true
     },
     {
         id: 1,
         title: 'Report',
         href: '/#content-header',
         onClick: '',
-        active: false
+        isActive: false
     }
 ];
 

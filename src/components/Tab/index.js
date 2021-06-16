@@ -16,7 +16,7 @@ class Tab extends React.Component {
         this.setState({isLoggedIn: true});
     }
 
-    //let ch = null/*Object(props.children)*/;
+    //let ch = null/*new Object(props.children)*/;
     //if (React.Children.only(props.children)) ch = React.Children.map(props.children, child => child)[0]
     //console.log(ch)
 
@@ -27,7 +27,7 @@ class Tab extends React.Component {
                     <React.Fragment key={value.id}>
                         {React.cloneElement(this.child, {
                             children: value.title,
-                            className: this.child.props.className + `${value.active ? ' ' + this.active : ''}`,
+                            className: this.child.props.className + `${value.isActive ? ' ' + this.active : ''}`,
                             href: value.href,
                             onClick: this.handleClick
                         })}
