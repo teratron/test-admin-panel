@@ -2,6 +2,25 @@
     "name": "test-admin-panel",
     "version": "0.0.1",
     "private": true,
+    "description": "Admin Panel - test task using ReactJS",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/teratron/test-admin-panel.git"
+    },
+    "keywords": [
+        "test",
+        "admin",
+        "panel",
+        "react",
+        "app"
+    ],
+    "author": "Oleg Alexandrov",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/teratron/test-admin-panel/issues"
+    },
+    "homepage": "https://github.com/teratron/test-admin-panel#readme",
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.35",
         "@fortawesome/free-solid-svg-icons": "^5.15.3",

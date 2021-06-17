@@ -9,15 +9,15 @@ const itemTabDashboard = [
     {
         id: 0,
         title: 'Chart',
-        href: '/#content-header',
-        onClick: '',
+        url: '/#content-header',
+        //onClick: '',
         isActive: true
     },
     {
         id: 1,
         title: 'Report',
-        href: '/#content-header',
-        onClick: '',
+        url: '/#content-header',
+        //onClick: '',
         isActive: false
     }
 ];
@@ -39,10 +39,21 @@ function Content() {
                     </Tab>
                 </nav>}
             </header>
-            <Dashboard/>
-            <Support/>
+            {getContent(title)}
+            {/*<Dashboard/>
+            <Support/>*/}
         </section>
     );
+}
+
+function getContent(title) {
+    switch (title) {
+        default:
+        case titleDashboard:
+            return <Dashboard/>
+        case titleSupport:
+            return <Support/>
+    }
 }
 
 export default Content;

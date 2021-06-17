@@ -2,10 +2,12 @@ import React from 'react';
 
 import './tab.scss';
 
+let reference = null;
+
 class Tab extends React.Component {
     constructor(props) {
         super(props);
-        this.active = props.activeName;
+        this.active = props.activeName ? props.activeName : 'active';
         this.items = props.items; //[{}]
         this.child = props.children; //<a>
         this.state = {isLoggedIn: false};
@@ -27,15 +29,19 @@ class Tab extends React.Component {
                     <React.Fragment key={value.id}>
                         {React.cloneElement(this.child, {
                             children: value.title,
-                            className: this.child.props.className + `${value.isActive ? ' ' + this.active : ''}`,
-                            href: value.href,
-                            onClick: this.handleClick
+                            url: value.href,
+                            onClick: this.handleClick,
+                            className: getClassName(this.child.props.className, value.isActive ? this.active : '')
                         })}
                     </React.Fragment>
                 ))}
             </React.Fragment>
         )
     }
+}
+
+function getClassName(className, activeName) {
+    return className ? className + ' ' + activeName : activeName;
 }
 
 /*function TabItem(props) {
@@ -68,4 +74,5 @@ class Tab extends React.Component {
     }
 }*/
 
+export {reference};
 export default Tab;
