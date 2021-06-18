@@ -15,12 +15,11 @@
         "react",
         "app"
     ],
-    "author": "Oleg Alexandrov",
+    "author": "Oleg Alexandrov <alexandrovoleg.ru@gmail.com>",
     "license": "ISC",
     "bugs": {
         "url": "https://github.com/teratron/test-admin-panel/issues"
     },
-    "homepage": "https://github.com/teratron/test-admin-panel#readme",
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.35",
         "@fortawesome/free-solid-svg-icons": "^5.15.3",

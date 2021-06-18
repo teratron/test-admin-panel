@@ -2,7 +2,7 @@ import React from 'react';
 
 import Dashboard, {titleDashboard} from './Dashboard';
 import Support, {titleSupport} from './Support';
-import Tab from '../Tab';
+import Switch from '../Tab';
 import './content.scss';
 
 const itemTabDashboard = [
@@ -18,7 +18,12 @@ const itemTabDashboard = [
         title: 'Report',
         url: '/#content-header',
         //onClick: '',
-        isActive: false
+    },
+    {
+        id: 2,
+        title: 'Report42',
+        url: '/#content-header',
+        //onClick: '',
     }
 ];
 
@@ -34,9 +39,9 @@ function Content() {
                 <h1 className="title">{title}</h1>
                 {title === titleDashboard &&
                 <nav className="tab">
-                    <Tab items={itemTabDashboard} activeName="active">
+                    <Switch cases={itemTabDashboard} activeName="active">
                         <a href="/" className="tab-item"><React.Fragment/></a>
-                    </Tab>
+                    </Switch>
                 </nav>}
             </header>
             {getContent(title)}
