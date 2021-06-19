@@ -4,7 +4,7 @@ import './tab.scss';
 
 let reference = null;
 
-/*class Switch extends React.Component {
+class Switcher extends React.Component {
     constructor(props) {
         super(props);
         this.cases = props.cases; //[{}]
@@ -25,7 +25,7 @@ let reference = null;
         //console.log('*********************************************', this.state.title);
     }
 
-    //let ch = null/!*new Object(props.children)*!/;
+    //let ch = null/*new Object(props.children)*/;
     //if (React.Children.only(props.children)) ch = React.Children.map(props.children, child => child)[0]
     //console.log(ch)
     item = [];
@@ -48,7 +48,7 @@ let reference = null;
             </React.Fragment>
         );
     }
-}*/
+}
 
 function Switch(props) {
     //const activeName = props.activeName ? props.activeName : 'active';
