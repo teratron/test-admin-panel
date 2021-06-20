@@ -3,7 +3,8 @@ import React from 'react';
 import ContentHeader from './Header';
 import DashboardChart from './DashboardChart';
 import DashboardReport from './DashboardReport';
-import Switch from "../Switcher";
+import Switcher from "../Switcher";
+import './tab.scss';
 
 export const titleDashboard = 'Dashboard';
 
@@ -31,9 +32,9 @@ function Dashboard() {
         <React.Fragment>
             <ContentHeader title={titleDashboard}>
                 <nav className="tab">
-                    <Switch cases={itemTabDashboard} activeName="active">
+                    <Switcher cases={itemTabDashboard} activeName="active">
                         <a href="/" className="tab-item"><React.Fragment/></a>
-                    </Switch>
+                    </Switcher>
                 </nav>
             </ContentHeader>
             <DashboardChart/>

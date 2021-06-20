@@ -1,63 +1,76 @@
 import React from 'react';
 
-import './tab.scss';
+//let reference = null;
 
-let reference = null;
-
-/*class Switcher extends React.Component {
+class Switcher extends React.Component {
     constructor(props) {
         super(props);
         this.cases = props.cases; //[{}]
         this.child = props.children; //<a>
         this.activeName = props.activeName ? props.activeName : 'active';
+        this.items = [];
         this.state = {
             isLoggedIn: false,
-            title: 'a'
         };
         this.handleClick = this.handleClick.bind(this);
+        this.getCases();
     }
 
     handleClick() {
         this.setState({
             isLoggedIn: true,
-            title: 'b'
         });
         //console.log('*********************************************', this.state.title);
     }
 
-    //let ch = null/!*new Object(props.children)*!/;
+    /* componentDidUpdate() {
+         console.log('1', 'componentDidUpdate');
+     }*/
+
+    getCases() {
+        //return (
+        //<React.Fragment>
+        this.cases.forEach((value, index) => (
+            <React.Fragment key={value.id}>
+                {this.items[index] = React.cloneElement(this.child, {
+                    children: value.title,
+                    href: value.url ? value.url : '',
+                    onClick: this.handleClick,
+                    className: getClassName(this.child.props.className, value.isActive ? this.activeName : '')
+                })}
+            </React.Fragment>
+        ));
+        //</React.Fragment>
+        //);
+        //console.log('1', this.items[0]);
+    }
+
+    //let ch = null/*new Object(props.children)*/;
     //if (React.Children.only(props.children)) ch = React.Children.map(props.children, child => child)[0]
     //console.log(ch)
-    item = [];
+
 
     render() {
-        //console.log(this);
+        //if (!this.state.isInit) {
+        /*this.getCases();
+        this.setState({isInit: true});
+        console.log(this.items);*/
+        //}
+        //console.log('2', this.items[0]);
         return (
             <React.Fragment>
-                {this.cases.map((value, index)  => (
-                    <React.Fragment key={value.id}>
-                        {this.item[index] = React.cloneElement(this.child, {
-                            children: value.title,
-                            href: value.url ? value.url : '',
-                            onClick: this.handleClick,
-                            className: getClassName(this.child.props.className, value.isActive ? this.activeName : '')
-                        })}
-                        {console.log(this.item[index])}
-                    </React.Fragment>
-                ))}
+                {this.items}
             </React.Fragment>
         );
     }
-}*/
+}
 
-function Switch(props) {
-    //const activeName = props.activeName ? props.activeName : 'active';
-    //let item = [];
 
-    /*function handleClick() {
-        console.log('*********************************************');
-    }*/
+function getClassName(className, activeName) {
+    return className ? className + ' ' + activeName : activeName;
+}
 
+/*function Switch(props) {
     const item = getCasesSwitch(props);
 
     console.log(item);
@@ -65,22 +78,11 @@ function Switch(props) {
     return (
         <React.Fragment>
             {item}
-            {/*{props.cases.map((value, index) => (
-                <React.Fragment key={value.id}>
-                    {item[index] = React.cloneElement(props.children, {
-                        children: value.title,
-                        href: value.url ? value.url : '',
-                        onClick: handleClick,
-                        className: getClassName(props.children.props.className, value.isActive ? activeName : '')
-                    })}
-                    {console.log(item[index])}
-                </React.Fragment>
-            ))}*/}
         </React.Fragment>
     );
-}
+}*/
 
-function getCasesSwitch(props) {
+/*function getCasesSwitch(props) {
     const activeName = props.activeName ? props.activeName : 'active';
     const item = [];
     //console.log(props.cases)
@@ -96,11 +98,8 @@ function getCasesSwitch(props) {
     ))
     //console.log(props.cases)
     return item;
-}
+}*/
 
-function getClassName(className, activeName) {
-    return className ? className + ' ' + activeName : activeName;
-}
 
 /*class SwitchControl extends React.Component {
     constructor(props) {
@@ -157,5 +156,5 @@ function getClassName(className, activeName) {
     }
 }*/
 //console.log(<Switch/>)
-export {reference};
-export default Switch;
+//export {reference};
+export default Switcher;
