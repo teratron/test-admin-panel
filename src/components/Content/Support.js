@@ -1,17 +1,21 @@
 import React from 'react';
 
+import ContentHeader from "./Header";
 import Button from '../Button';
 import Table from '../Table';
-import './content.scss';
+
+export const titleSupport = 'Support';
 
 function Support() {
     return (
-        <div className="pane">
-            <Button text="Search" color="secondary" bordered rounded shadowed/>
-            <Table/>
-        </div>
+        <React.Fragment>
+            <ContentHeader title={titleSupport}/>
+            <div className="pane">
+                <Button text="Search" color="secondary" bordered rounded shadowed/>
+                <Table/>
+            </div>
+        </React.Fragment>
     );
 }
 
-export const titleSupport = 'Support';
 export default Support;
