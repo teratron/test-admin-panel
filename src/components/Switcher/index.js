@@ -11,13 +11,18 @@ class Switcher extends React.Component {
         this.items = [];
         this.state = {
             isLoggedIn: false,
+            prevItem: {},
         };
         this.handleClick = this.handleClick.bind(this);
         this.getCases();
     }
 
-    handleClick() {
+    handleClick(e) {
+        console.log(typeof e);
+        console.log(e.target.className);
+        e.target.className += ' ghj';
         this.setState({
+            prevItem: e.target,
             isLoggedIn: true,
         });
         //console.log('*********************************************', this.state.title);
@@ -42,7 +47,7 @@ class Switcher extends React.Component {
         ));
         //</React.Fragment>
         //);
-        //console.log('1', this.items[0]);
+        console.log(this.items[0]);
     }
 
     //let ch = null/*new Object(props.children)*/;
@@ -65,9 +70,12 @@ class Switcher extends React.Component {
     }
 }
 
-
 function getClassName(className, activeName) {
-    return className ? className + ' ' + activeName : activeName;
+    return className
+        ? activeName
+            ? className + ' ' + activeName
+            : className
+        : activeName;
 }
 
 /*function Switch(props) {
