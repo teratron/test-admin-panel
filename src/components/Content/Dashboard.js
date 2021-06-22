@@ -10,20 +10,23 @@ export const titleDashboard = 'Dashboard';
 
 const itemTabDashboard = [
     {
-        id: '0',
+        id: 'tab_chart_id',
         title: 'Chart',
-        url: '/#content-header',
+        type: 'a',
+        attr: {
+            href: '/#content-header',
+            className: 'tab-item'
+        },
         isActive: true
     },
     {
-        id: '1',
+        id: 'tab_report_id',
         title: 'Report',
-        url: '/#content-header'
-    },
-    {
-        id: '2',
-        title: 'Report42',
-        url: '/#content-header'
+        type: 'a',
+        attr: {
+            href: '/#content-header',
+            className: 'tab-item'
+        }
     }
 ];
 
@@ -32,9 +35,7 @@ function Dashboard() {
         <React.Fragment>
             <ContentHeader title={titleDashboard}>
                 <nav className="tab">
-                    <Switcher cases={itemTabDashboard} activeName="active">
-                        <a href="/" className="tab-item"><React.Fragment/></a>
-                    </Switcher>
+                    <Switcher items={itemTabDashboard} activeName="active"/>
                 </nav>
             </ContentHeader>
             <DashboardChart/>

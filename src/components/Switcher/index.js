@@ -1,8 +1,81 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 //let reference = null;
 
-class Switcher extends React.Component {
+function Switcher(props) {
+    const [state, setState] = useState(false);
+    const activeName = props.activeName ? props.activeName : 'active';
+
+    //const item = React.Children.map(props.children, child => child);
+    //console.log(props.child);
+
+    //const items = [];
+    /*const Items = (
+        props.items.forEach((value, index) => (
+            <React.Fragment key={value.id}>
+                {React.createElement(value.type, {
+                    onClick: handleClick,
+                    children: value.title,
+                    ...getAttr(value, activeName)
+                })}
+            </React.Fragment>
+        ))
+    );*/
+
+
+    function handleClick(e) {
+        console.log(e);
+        //console.log(e.target.className);
+        //e.target.className += ' active';
+        /*setState({
+            prevItem: e.target,
+            isLoggedIn: true,
+        });*/
+    }
+
+    //console.log(items[0]);
+
+    return (
+        <React.Fragment>
+            {props.items.map(item => (
+                <React.Fragment key={item.id}>
+                    {React.createElement(
+                        item.type,
+                        Object.assign(
+                            {
+                                onClick: handleClick,
+                                children: item.title
+                            },
+                            getAttr(item, activeName)
+                        ))}
+                </React.Fragment>
+            ))}
+        </React.Fragment>
+    );
+}
+
+function getAttr(props, activeName) {
+    if ('className' in props.attr) {
+        activeName = props.isActive ? activeName : '';
+        props.attr['className'] = props.attr['className']
+            ? activeName
+                ? props.attr['className'] + ' ' + activeName
+                : props.attr['className']
+            : activeName;
+        //props.isActive = false;
+    }
+    return props.attr;
+}
+
+/*function getClassName(className, activeName) {
+    return className
+        ? activeName
+            ? className + ' ' + activeName
+            : className
+        : activeName;
+}*/
+
+/*class Switcher extends React.Component {
     constructor(props) {
         super(props);
         this.cases = props.cases; //[{}]
@@ -20,17 +93,13 @@ class Switcher extends React.Component {
     handleClick(e) {
         console.log(typeof e);
         console.log(e.target.className);
-        e.target.className += ' ghj';
+        e.target.className += ' active';
         this.setState({
             prevItem: e.target,
             isLoggedIn: true,
         });
         //console.log('*********************************************', this.state.title);
     }
-
-    /* componentDidUpdate() {
-         console.log('1', 'componentDidUpdate');
-     }*/
 
     getCases() {
         //return (
@@ -50,16 +119,16 @@ class Switcher extends React.Component {
         console.log(this.items[0]);
     }
 
-    //let ch = null/*new Object(props.children)*/;
+    //let ch = null/!*new Object(props.children)*!/;
     //if (React.Children.only(props.children)) ch = React.Children.map(props.children, child => child)[0]
     //console.log(ch)
 
 
     render() {
         //if (!this.state.isInit) {
-        /*this.getCases();
-        this.setState({isInit: true});
-        console.log(this.items);*/
+        //this.getCases();
+        //this.setState({isInit: true});
+        //console.log(this.items);
         //}
         //console.log('2', this.items[0]);
         return (
@@ -68,15 +137,7 @@ class Switcher extends React.Component {
             </React.Fragment>
         );
     }
-}
-
-function getClassName(className, activeName) {
-    return className
-        ? activeName
-            ? className + ' ' + activeName
-            : className
-        : activeName;
-}
+}*/
 
 /*function Switch(props) {
     const item = getCasesSwitch(props);

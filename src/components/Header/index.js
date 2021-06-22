@@ -1,7 +1,7 @@
 import React from 'react';
 
 import LoginControl from '../Login';
-import logo from '../../images/logo.svg';
+import logo from '../../media/logo.svg';
 import './header.scss';
 
 function Header() {
