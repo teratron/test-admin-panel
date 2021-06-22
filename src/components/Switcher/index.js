@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 //let reference = null;
 
@@ -22,15 +22,16 @@ function Switcher(props) {
         ))
     );*/
 
-
     function handleClick(e) {
-        console.log(e);
+        console.log(typeof e.target);
         //console.log(e.target.className);
         //e.target.className += ' active';
         /*setState({
             prevItem: e.target,
             isLoggedIn: true,
         });*/
+        e.target.classList.remove(activeName);
+        e.target.className += ' gogog'
     }
 
     //console.log(items[0]);
@@ -41,12 +42,11 @@ function Switcher(props) {
                 <React.Fragment key={item.id}>
                     {React.createElement(
                         item.type,
-                        Object.assign(
-                            {
-                                onClick: handleClick,
-                                children: item.title
-                            },
-                            getAttr(item, activeName)
+                        Object.assign({
+                            onClick: handleClick,
+                            children: item.title
+                        },
+                            getAttrs(item, activeName)
                         ))}
                 </React.Fragment>
             ))}
@@ -54,17 +54,20 @@ function Switcher(props) {
     );
 }
 
-function getAttr(props, activeName) {
-    if ('className' in props.attr) {
-        activeName = props.isActive ? activeName : '';
-        props.attr['className'] = props.attr['className']
+function getAttrs(item, activeName) {
+    if ('className' in item.attr) {
+        activeName = item.isActive && !item.attr.className.includes(activeName)
             ? activeName
-                ? props.attr['className'] + ' ' + activeName
-                : props.attr['className']
+            : '';
+
+        item.attr.className = item.attr.className
+            ? activeName
+                ? item.attr.className + ' ' + activeName
+                : item.attr.className
             : activeName;
         //props.isActive = false;
     }
-    return props.attr;
+    return item.attr;
 }
 
 /*function getClassName(className, activeName) {
