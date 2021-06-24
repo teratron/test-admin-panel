@@ -11,19 +11,30 @@ export const titleDashboard = 'Dashboard';
 const itemTabDashboard = [
     {
         id: 'tab_chart_id',
-        title: 'Chart',
         type: 'a',
+        title: 'Chart',
+        hover: {
+            title: 'Chart',
+        },
+        active: {
+            title: 'Chart',
+        },
+        focus: {
+            title: 'Chart',
+        },
         attr: {
+            ref: null,
             href: '/#content-header',
-            className: 'tab-item'
+            className: 'tab-item',
         },
         isActive: true
     },
     {
         id: 'tab_report_id',
-        title: 'Report',
         type: 'a',
+        title: 'Report',
         attr: {
+            ref: null,
             href: '/#content-header',
             className: 'tab-item'
         }
