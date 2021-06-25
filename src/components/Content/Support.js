@@ -8,13 +8,13 @@ export const titleSupport = 'Support';
 
 function Support() {
     return (
-        <React.Fragment>
-            <ContentHeader title={titleSupport}/>
+        <>
+            <ContentHeader title={titleSupport} />
             <div className="pane">
-                <Button text="Search" color="secondary" bordered rounded shadowed/>
-                <Table/>
+                <Button text="Search" color="secondary" bordered rounded shadowed />
+                <Table />
             </div>
-        </React.Fragment>
+        </>
     );
 }
 

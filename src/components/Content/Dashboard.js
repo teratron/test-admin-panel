@@ -4,7 +4,6 @@ import ContentHeader from './Header';
 import DashboardChart from './DashboardChart';
 import DashboardReport from './DashboardReport';
 import Switcher from "../Switcher";
-import './tab.scss';
 
 export const titleDashboard = 'Dashboard';
 
@@ -46,11 +45,11 @@ function Dashboard() {
         <React.Fragment>
             <ContentHeader title={titleDashboard}>
                 <nav className="tab">
-                    <Switcher items={itemTabDashboard} activeName="active"/>
+                    <Switcher items={itemTabDashboard} activeName="active" />
                 </nav>
             </ContentHeader>
-            <DashboardChart/>
-            <DashboardReport/>
+            <DashboardChart />
+            <DashboardReport />
         </React.Fragment>
     );
 }

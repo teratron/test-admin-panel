@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 //import PropTypes from 'prop-types';
 
@@ -6,7 +6,7 @@ function Switcher(props) {
     console.log('1');
     const activeName = props.activeName ? props.activeName : 'active';
 
-    const switcherItems = () => {
+    function switcherItems() {
         return (
             props.items.map(item => (
                 <React.Fragment key={item.id}>
@@ -14,48 +14,15 @@ function Switcher(props) {
                     {React.createElement(
                         item.type,
                         Object.assign({
-                                onClick: handleClick,
-                                children: item.title
-                            },
+                            onClick: handleClick,
+                            children: item.title
+                        },
                             getAttrs(item, activeName)
                         ))}
                 </React.Fragment>
             ))
         );
     }
-
-    /*const switcher = useRef(
-        props.items.map(item => (
-            <React.Fragment key={item.id}>
-                {console.log('***********************************')}
-                {React.createElement(
-                    item.type,
-                    Object.assign({
-                            onClick: handleClick,
-                            children: item.title
-                        },
-                        getAttrs(item, activeName)
-                    ))}
-            </React.Fragment>
-        )));*/
-
-    //let items = useRef(null);
-    //let items;
-    //const [state, setState] = useState(
-    /*props.items.map(item => (
-        <React.Fragment key={item.id}>
-            {console.log('***********************************')}
-            {React.createElement(
-                item.type,
-                Object.assign({
-                        onClick: handleClick,
-                        children: item.title
-                    },
-                    getAttrs(item, activeName)
-                ))}
-        </React.Fragment>
-    ))*/
-    //);
     /*let items = null;
     useEffect(() => {
             items = switcherItems();
