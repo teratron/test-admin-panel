@@ -7,6 +7,28 @@ import Switcher from "../Switcher";
 
 export const titleDashboard = 'Dashboard';
 
+const switcher = {
+    type: 'nav',
+    attr: {
+        ref: null,
+        className: 'tab',
+        activeName: 'active',
+    },
+    child: [
+        {
+            id: 'tab_chart_id',
+            type: 'a',
+            title: 'Chart',
+            attr: {
+                ref: null,
+                href: '/#content-header',
+                className: 'tab-item',
+            },
+            isActive: true
+        }
+    ]
+};
+
 const itemTabDashboard = [
     {
         id: 'tab_chart_id',
