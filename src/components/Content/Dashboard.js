@@ -7,7 +7,7 @@ import Switcher from "../Switcher";
 
 export const titleDashboard = 'Dashboard';
 
-const switcher = {
+/*const switcher = {
     type: 'nav',
     attr: {
         ref: null,
@@ -27,7 +27,7 @@ const switcher = {
             isActive: true
         }
     ]
-};
+};*/
 
 const itemTabDashboard = [
     {
