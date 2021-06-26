@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, { useRef, useState } from 'react';
 
 //import PropTypes from 'prop-types';
 
@@ -16,7 +16,6 @@ function Switcher(props) {
         switcher.current = switcherItems();
     }, [init, switcherItems]);*/
 
-
     function switcherItems() {
         return props.items.map((item, index) => {
             if (item.isActive) {
@@ -29,11 +28,9 @@ function Switcher(props) {
                     {React.createElement(
                         item.type,
                         Object.assign({
-                                //ref: tab[index],
-                                //ref: React.createRef(),
-                                onClick: handleClick,
-                                children: item.title
-                            },
+                            onClick: handleClick,
+                            children: item.title
+                        },
                             getAttrs(item, index)
                         ))}
                 </React.Fragment>
