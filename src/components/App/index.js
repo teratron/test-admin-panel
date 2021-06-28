@@ -1,8 +1,8 @@
 import React from 'react';
 
+import Spinner from '../Spinner';
 import Header from '../Header';
 import Main from '../Main';
-import Spinner from '../Main';
 import './app.scss';
 
 function App() {

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import ContentHeader from './Header';
-import DashboardChart from './DashboardChart';
-import DashboardReport from './DashboardReport';
-import Switcher from "../Switcher";
+import ContentHeader from '../Header';
+import DashboardChart from './Chart';
+import DashboardReport from './Report';
+import Switcher from "../../Switcher";
 
 export const titleDashboard = 'Dashboard';
 

@@ -1,42 +1,53 @@
-import React, { useRef, useState } from 'react';
+import React, {useState} from 'react';
 
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 function Switcher(props) {
-    console.log('1');
+    //console.log('1');
     const activeName = props.activeName ? props.activeName : 'active';
-    const tab = [];
-    tab[0] = useRef(null);
-    //const tab = [...React.createRef()];
     const [switcher] = useState(() => switcherItems());
 
-    //const [init] = useState(true);
-    //const switcher = useRef(null);
     /*useEffect(() => {
         switcher.current = switcherItems();
     }, [init, switcherItems]);*/
 
+    //const a = [...useItem()];
+
     function switcherItems() {
-        return props.items.map((item, index) => {
-            if (item.isActive) {
-                console.log(item)
-            }
-            //tab[index] = React.createRef();
-            return (
-                <React.Fragment key={item.id}>
-                    {console.log('***********************************')}
-                    {React.createElement(
-                        item.type,
-                        Object.assign({
+        const child = [];
+        //return props.items.map((item, index) => {
+        props.items.forEach((item, index) => {
+            /*if (item.isActive) {
+                //console.log(item)
+            }*/
+            //return (
+            child[index] = <React.Fragment key={item.id}>
+
+                {React.createElement(
+                    item.type,
+                    /*{
+                        ...getAttrs(item, index),
+                        onClick: handleClick,
+                        children: item.title
+                    }*/
+                    Object.assign({
+                            //ref: React.createRef(),
                             onClick: handleClick,
                             children: item.title
                         },
-                            getAttrs(item, index)
-                        ))}
-                </React.Fragment>
-            );
+                        getAttrs(item, index)
+                    ))}
+            </React.Fragment>
+            // );
         });
+        return child
     }
+
+    //const tab = [1];
+    //tab[0] = useRef(null);
+
+    //switcher[1].props.children.ref = useRef(null);
+    console.log(switcher[1]);
 
     function getAttrs(item, index) {
         if ('className' in item.attr) {
@@ -49,7 +60,7 @@ function Switcher(props) {
                     : item.attr.className
                 : active;
         }
-        item.attr.ref = tab[0];
+        item.attr.ref = React.createRef();
         return item.attr;
     }
 
@@ -57,12 +68,13 @@ function Switcher(props) {
     //const [state, setState] = useState();
 
     function handleClick(e) {
+        console.log(e/*.target.ref.current.focus()*/);
         /*if (init) {
 
             setInit(false);
         }*/
-        tab[0].current.className = ' gogo'
-        console.log(e);
+        //tab[0].current.className = ' gogo'
+        //console.log(e);
         /*if (state !== e.target) {
             state.className.remove(activeName);
             if (!e.target.className.includes(activeName)) e.target.className.add(activeName);
@@ -79,12 +91,20 @@ function Switcher(props) {
     return <React.Fragment>{switcher}</React.Fragment>
 }
 
-/*Switcher.propTypes = {
-    items: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.element),
-        PropTypes.objectOf(PropTypes.element),
+/*function useItem() {
+    const ref = useRef(null);
 
-    ])
+    return {
+        ref,
+    };
 }*/
+
+Switcher.defaultProps = {
+    items: {}
+}
+
+Switcher.propTypes = {
+    activeName: PropTypes.string
+};
 
 export default Switcher;

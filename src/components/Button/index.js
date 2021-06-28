@@ -1,5 +1,6 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
 import './button.scss';
 
 function Button(props) {
@@ -13,7 +14,7 @@ function Button(props) {
     const className = props.className ? 'btn ' + props.className : 'btn';
     const style = props.style ? props.style : null;
 
-    const handleClick = function () {
+    const handleClick = () => {
         if (typeof props.onClick !== 'undefined') {
             props.onClick();
         }
@@ -25,17 +26,25 @@ function Button(props) {
             className={`${className}${color}${bordered}${rounded}${shadowed}${blanked}`}
             style={style}
             onClick={handleClick}
-            disabled={props.disabled}>
+            disabled={props.disabled}
+        >
             {text}
         </button>
     );
 }
 
-Button.defaultProps = {
-    bordered: '',
-    rounded: '',
-    shadowed: '',
-    blanked: ''
+Button.propTypes = {
+    text: PropTypes.string,
+    type: PropTypes.string,
+    color: PropTypes.string,
+    className: PropTypes.string,
+    style: PropTypes.object,
+    onClick: PropTypes.func,
+    bordered: PropTypes.bool,
+    rounded: PropTypes.bool,
+    shadowed: PropTypes.bool,
+    blanked: PropTypes.bool,
+    disabled: PropTypes.bool
 };
 
-export default Button;
+export default React.memo(Button);
