@@ -21,7 +21,7 @@
     "url": "https://github.com/teratron/test-admin-panel/issues"
   },
   "dependencies": {
-    "chart.js": "^3.3.2"
+    "chart.js": "^3.4.0"
   },
   "devDependencies": {
     "react-chartjs-2": "^3.0.3",

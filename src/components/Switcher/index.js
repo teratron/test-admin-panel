@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 function Switcher(props) {
     //console.log('1');
     const activeName = props.activeName ? props.activeName : 'active';
+
+    const ref = props.items.map(() => React.createRef());
+
     const [switcher] = useState(() => switcherItems());
 
     /*useEffect(() => {
@@ -17,39 +20,26 @@ function Switcher(props) {
         const child = [];
         //return props.items.map((item, index) => {
         props.items.forEach((item, index) => {
-            /*if (item.isActive) {
+            if (item.isActive) {
                 //console.log(item)
-            }*/
+            }
             //return (
             child[index] = <React.Fragment key={item.id}>
-
                 {React.createElement(
                     item.type,
-                    /*{
-                        ...getAttrs(item, index),
-                        onClick: handleClick,
-                        children: item.title
-                    }*/
-                    Object.assign({
-                            //ref: React.createRef(),
-                            onClick: handleClick,
-                            children: item.title
-                        },
-                        getAttrs(item, index)
-                    ))}
+                    {
+                        ...getAttrs(item),
+                        children: item.title,
+                        ref: ref[index],
+                        onClick: handleClick
+                    })}
             </React.Fragment>
-            // );
+            //);
         });
         return child
     }
 
-    //const tab = [1];
-    //tab[0] = useRef(null);
-
-    //switcher[1].props.children.ref = useRef(null);
-    console.log(switcher[1]);
-
-    function getAttrs(item, index) {
+    function getAttrs(item) {
         if ('className' in item.attr) {
             const active = item.isActive && !item.attr.className.includes(activeName)
                 ? activeName
@@ -60,7 +50,6 @@ function Switcher(props) {
                     : item.attr.className
                 : active;
         }
-        item.attr.ref = React.createRef();
         return item.attr;
     }
 
@@ -68,19 +57,20 @@ function Switcher(props) {
     //const [state, setState] = useState();
 
     function handleClick(e) {
-        console.log(e/*.target.ref.current.focus()*/);
+//ref[0].current.className = ' gogo'
+        if (!e.target.className.includes(activeName)) e.target.className.add(activeName);//console.log(activeName);
+        else console.log('remove ' + activeName);
+        //console.log(e.target.props/*.children.ref.current.focus()*/);
         /*if (init) {
-
             setInit(false);
         }*/
-        //tab[0].current.className = ' gogo'
+
         //console.log(e);
         /*if (state !== e.target) {
             state.className.remove(activeName);
             if (!e.target.className.includes(activeName)) e.target.className.add(activeName);
             setState(e.target);
         }*/
-
         //console.log(typeof e.target);
         //console.log(e.target.className);
         //e.target.className += ' active';
@@ -92,10 +82,10 @@ function Switcher(props) {
 }
 
 /*function useItem() {
-    const ref = useRef(null);
+    //const ref = useRef(null);
 
     return {
-        ref,
+        ref: useRef(null),
     };
 }*/
 
