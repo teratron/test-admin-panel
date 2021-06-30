@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import PropTypes from 'prop-types';
 
 function Switcher(props) {
 
     const activeName = props.activeName ? props.activeName : 'active';
+    const ref = props.data.items.map(() => React.createRef());
     const [switcher] = useState(() => switcherParent());
 
     function switcherParent() {
@@ -29,16 +30,16 @@ function Switcher(props) {
                         item.type ? item.type : 'span',
                         {
                             ...getAttrs(item),
-                            //ref: ref[index],
+                            ref: ref[index],
                             children: item.title,
                             onClick: handleClick
                         }
                     )}
                 </React.Fragment>
-            )
+            );
 
             if (item.isActive) {
-                //console.log(item)
+                console.log(item)
                 //prev = child[index];
                 //console.log('prev:', prev, prev.props.children.props.className, prev.props.children.ref)
             }
@@ -61,7 +62,7 @@ function Switcher(props) {
     }
 
     function handleClick(e) {
-
+        console.log(e)
     }
 
     //console.log('1');
