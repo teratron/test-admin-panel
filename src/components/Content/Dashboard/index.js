@@ -3,33 +3,41 @@ import React from 'react';
 import ContentHeader from '../Header';
 import DashboardChart from './Chart';
 import DashboardReport from './Report';
-import Switcher from "../../Switcher";
+import Switcher from '../../Switcher';
 
 export const titleDashboard = 'Dashboard';
 
-/*const switcher = {
+const switcher = {
     type: 'nav',
+    activeName: 'active',
     attr: {
-        ref: null,
-        className: 'tab',
-        activeName: 'active',
+        id: 'dashboard-tab',
+        className: 'tab'
     },
-    child: [
+    items: [
         {
             id: 'tab_chart_id',
             type: 'a',
             title: 'Chart',
             attr: {
-                ref: null,
                 href: '/#content-header',
-                className: 'tab-item',
+                className: 'tab-item'
             },
             isActive: true
+        },
+        {
+            id: 'tab_report_id',
+            type: 'a',
+            title: 'Report',
+            attr: {
+                href: '/#content-header',
+                className: 'tab-item'
+            }
         }
     ]
-};*/
+};
 
-const itemTabDashboard = [
+/*const itemTabDashboard = [
     {
         id: 'tab_chart_id',
         type: 'a',
@@ -60,18 +68,19 @@ const itemTabDashboard = [
             className: 'tab-item'
         }
     }
-];
+];*/
 
 function Dashboard() {
     return (
         <React.Fragment>
             <ContentHeader title={titleDashboard}>
-                <nav className="tab">
+                {/*<nav className="tab">
                     <Switcher items={itemTabDashboard} activeName="active" />
-                </nav>
+                </nav>*/}
+                <Switcher data={switcher}/>
             </ContentHeader>
-            <DashboardChart />
-            <DashboardReport />
+            <DashboardChart/>
+            <DashboardReport/>
         </React.Fragment>
     );
 }
