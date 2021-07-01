@@ -1,9 +1,9 @@
-import React, {useRef, useState} from 'react';
+import React, { /*useRef,*/ useState } from 'react';
 
 import PropTypes from 'prop-types';
 
 
-function useSwitcher(props, ref, ...args) {
+/*function useSwitcher(props, ref, ...args) {
 
     if (args[0] === undefined) {
         args[0] = 0;
@@ -13,12 +13,14 @@ function useSwitcher(props, ref, ...args) {
     ref[args[0]] = useRef(props[args[0]]);
 
     args[0]++;
-    //useSwitcher(props, ref, args[0]);
 
     if (args[0] === ref.length) {
         return ref
     }
 
+    //useSwitcher(props, ref, args[0]);
+
+    //return useSwitcher(props, ref, args[0]);
 
     /*ref[args[0]] = useSwitcher(useRef(props))
 
@@ -30,30 +32,21 @@ function useSwitcher(props, ref, ...args) {
 
     console.log('i:', args[0]);
 
-    /!*while (i > 3) {
-        return;
-    }*!/
-
-    args[0]++;
-    useSwitcher(props, ref, args[0]);*/
-
     //return refs//useSwitcher(props)
-}
+}*/
 
 function Switcher(props) {
+    let prevChild = null;
     const activeName = props.activeName ? props.activeName : 'active';
     const ref = props.data.items.map(() => React.createRef());
     const [switcher] = useState(() => switcherParent());
 
-    let refs = [1/*switcher.props.children.length*/];
+    //let refs = [1/*switcher.props.children.length*/];
     //refs = useSwitcher(switcher.props.children, refs);
     //console.log('Ref:', refs);
-
     //const refs = props.data.items.map(() => useSwitcher(switcher.props.children[0]));
-
     //const Ref = useRef(switcher.props.children[0]);
     //console.log('Ref:', Ref.current, switcher.props.children[0]);
-
     //const refs = useSwitcher(switcher.props.children);
 
     function switcherParent() {
@@ -80,16 +73,16 @@ function Switcher(props) {
                             ...getAttrs(item),
                             ref: ref[index],
                             children: item.title,
-                            onClick: handleClick
+                            onClick: e => handleClick(e, ref[index])
                         }
                     )}
                 </React.Fragment>
             );
 
             if (item.isActive) {
-                console.log(item)
-                //prev = child[index];
-                //console.log('prev:', prev, prev.props.children.props.className, prev.props.children.ref)
+                //console.log(item)
+                prevChild = ref[index];
+                //console.log('prev:', prevChild, prevChild.props.children);
             }
         });
         return child
@@ -109,8 +102,12 @@ function Switcher(props) {
         return item.attr;
     }
 
-    function handleClick(e) {
-        console.log(e)
+    function handleClick(e, ref) {
+        //console.log(e.target, ref.current)
+        //console.log('prev:', prevChild, prevChild.props.children);
+        //console.log(typeof prevChild.current)
+
+        if (e.target === prevChild.current) console.log('equal')
     }
 
     //console.log('1');
