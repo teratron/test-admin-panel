@@ -2,52 +2,11 @@ import React, { /*useRef,*/ useState } from 'react';
 
 import PropTypes from 'prop-types';
 
-
-/*function useSwitcher(props, ref, ...args) {
-
-    if (args[0] === undefined) {
-        args[0] = 0;
-    }
-    //console.log('i:', args[0]);
-
-    ref[args[0]] = useRef(props[args[0]]);
-
-    args[0]++;
-
-    if (args[0] === ref.length) {
-        return ref
-    }
-
-    //useSwitcher(props, ref, args[0]);
-
-    //return useSwitcher(props, ref, args[0]);
-
-    /*ref[args[0]] = useSwitcher(useRef(props))
-
-    const state = {
-        init: false,
-        index: 0,
-        refs: []
-    }
-
-    console.log('i:', args[0]);
-
-    //return refs//useSwitcher(props)
-}*/
-
 function Switcher(props) {
     let prevChild = null;
     const activeName = props.activeName ? props.activeName : 'active';
     const ref = props.data.items.map(() => React.createRef());
     const [switcher] = useState(() => switcherParent());
-
-    //let refs = [1/*switcher.props.children.length*/];
-    //refs = useSwitcher(switcher.props.children, refs);
-    //console.log('Ref:', refs);
-    //const refs = props.data.items.map(() => useSwitcher(switcher.props.children[0]));
-    //const Ref = useRef(switcher.props.children[0]);
-    //console.log('Ref:', Ref.current, switcher.props.children[0]);
-    //const refs = useSwitcher(switcher.props.children);
 
     function switcherParent() {
         if ('type' in props.data) {
@@ -66,7 +25,7 @@ function Switcher(props) {
         const child = [];
         props.data.items.forEach((item, index) => {
             child[index] = (
-                <React.Fragment key={item.id}>
+                <React.Fragment key={item.id ? item.id : 'id_' + index.toString()}>
                     {React.createElement(
                         item.type ? item.type : 'span',
                         {
@@ -80,7 +39,7 @@ function Switcher(props) {
             );
 
             if (item.isActive) {
-                //console.log(item)
+                console.log(child[index]);
                 prevChild = ref[index];
                 //console.log('prev:', prevChild, prevChild.props.children);
             }
@@ -103,9 +62,9 @@ function Switcher(props) {
     }
 
     function handleClick(e, ref) {
+        console.log(e, ref)
         //console.log(e.target, ref.current)
         //console.log('prev:', prevChild, prevChild.props.children);
-        //console.log(typeof prevChild.current)
 
         if (e.target === prevChild.current) console.log('equal')
     }
@@ -190,14 +149,6 @@ function Switcher(props) {
 
     return <React.Fragment>{switcher}</React.Fragment>
 }
-
-/*function useItem() {
-    //const ref = useRef(null);
-
-    return {
-        ref: useRef(null),
-    };
-}*/
 
 /*Switcher.defaultProps = {
     items: {}
