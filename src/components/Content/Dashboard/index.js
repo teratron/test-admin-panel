@@ -36,7 +36,17 @@ const switcherDashboard = {
             attr: {
                 href: '/#content-header',
                 className: 'tab-item'
-            }
+            },
+        },
+        {
+            id: 'tab_report2_id',
+            type: 'a',
+            title: 'Report2',
+            attr: {
+                href: '/#content-header',
+                className: 'tab-item'
+            },
+            isDisable: true
         }
     ]
 };

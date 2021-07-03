@@ -1,4 +1,4 @@
-import React, { /*useRef,*/ useState } from 'react';
+import React, {useState} from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -33,16 +33,16 @@ function Switcher(props) {
                             ...getAttrs(item),
                             ref: ref[index],
                             children: item.title,
-                            onClick: e => handleClick(e, ref[index])
+                            onClick: () => handleClick(ref[index])
                         }
                     )}
                 </React.Fragment>
             );
 
             if (item.isActive) {
-                console.log(child[index].props.children/*.props*/);
-                //prevChild = ref[index];
-                prevChild = child[index];
+                //console.log(child[index].props.children/*.props*/);
+                prevChild = ref[index];
+                //prevChild = child[index];
                 //console.log('prev:', prevChild, prevChild.props.children);
             }
         });
@@ -63,12 +63,16 @@ function Switcher(props) {
         return item.attr;
     }
 
-    function handleClick(e, ref) {
+    function handleClick(/*e, */ref) {
         //console.log(e, ref)
-        //console.log(e.target, ref.current)
-        console.log('prev:', prevChild, prevChild.props.children);
+        //console.log(e.target, ref.current, prevChild.current.classList[0])
+        //console.log('prev:', prevChild, prevChild.props.children);
 
-        if (e.target === prevChild.current) console.log('equal')
+        if (ref !== prevChild/*e.target !== prevChild.current && !e.target.className.includes(activeName)*/) {
+            ref.current.classList.add(activeName);
+            prevChild.current.classList.remove(activeName);
+            prevChild = ref;
+        }
     }
 
     /*    const activeName = props.activeName ? props.activeName : 'active';
