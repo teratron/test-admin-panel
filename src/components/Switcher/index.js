@@ -1,16 +1,15 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 
+/*export*/ let switcherItem = {};
+
 function Switcher(props) {
-    let prevChild;
+    console.log('*+*+**++')
+    let prevRef;
     const activeName = props.activeName ? props.activeName : 'active';
     const [switcher] = useState(() => switcherParent());
-
-    //console.log(switcher)
-
-    //const [init, setInit] = useState(true);
-    //const [state, setState] = useState();
+    const [active, setActive] = useState({});
 
     function switcherParent() {
         if ('type' in props.data) {
@@ -22,7 +21,6 @@ function Switcher(props) {
                 }
             )
         }
-
         return switcherChild();
     }
 
@@ -41,33 +39,28 @@ function Switcher(props) {
                             ...getAttrs(item),
                             ref: ref[index],
                             children: item.title,
-                            onClick: () => handleClick(ref[index])
+                            onClick: () => handleClick(ref[index], item)
                         }
                     )}
                 </React.Fragment>
             );
 
             if (item.isActive) {
-                prevChild = ref[index];
+                prevRef = ref[index];
                 hasActive = true;
             }
         });
 
-        //console.log(child[0].props.children.props, ref[0]);
-        if (!hasActive) {
-            //ref[0].current.classList.add(activeName);
-            prevChild = ref[0];
-            //setActive(child[0]);
-            //child[0].props.children.props.className = activeName;
-        }
+        if (!hasActive) prevRef = ref[0];
 
         return child;
     }
 
-    /*function setActive(props) {
-        console.log(props.props.children.props.className)
-        props.props.children.props.className = activeName;
-    }*/
+    useEffect(() => {
+        if (prevRef !== undefined && !prevRef.current.className.includes(activeName)) {
+            prevRef.current.classList.add(activeName);
+        }
+    }, [prevRef, activeName]);
 
     function getAttrs(item) {
         if ('className' in item.attr) {
@@ -83,29 +76,24 @@ function Switcher(props) {
         return item.attr;
     }
 
-    /*useEffect(() => {
-
-    }, []);
-    */
-
-    function handleClick(ref) {
-        if (ref !== prevChild/*&& !ref.current.className.includes(activeName)*/) {
+    function handleClick(ref, item) {
+        if (ref !== prevRef) {
+            prevRef.current.classList.remove(activeName);
             ref.current.classList.add(activeName);
-            prevChild.current.classList.remove(activeName);
-            prevChild = ref;
+            prevRef = ref;
+            switcherItem = Object.assign({}, item);
+            setActive(switcherItem);
+            //switcherItem = active;//Object.assign({}, item);
         }
     }
 
     return <React.Fragment>{switcher}</React.Fragment>
 }
 
-/*Switcher.defaultProps = {
-    items: {}
-}*/
-
 Switcher.propTypes = {
     activeName: PropTypes.string,
     attr: PropTypes.object,
 };
 
+export { switcherItem };
 export default Switcher;
