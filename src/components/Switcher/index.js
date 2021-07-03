@@ -3,9 +3,8 @@ import React, { /*useRef,*/ useState } from 'react';
 import PropTypes from 'prop-types';
 
 function Switcher(props) {
-    let prevChild = null;
+    let prevChild;
     const activeName = props.activeName ? props.activeName : 'active';
-    const ref = props.data.items.map(() => React.createRef());
     const [switcher] = useState(() => switcherParent());
 
     function switcherParent() {
@@ -22,8 +21,10 @@ function Switcher(props) {
     }
 
     function switcherChild() {
+        const ref = [];
         const child = [];
         props.data.items.forEach((item, index) => {
+            ref[index] = React.createRef();
             child[index] = (
                 <React.Fragment key={item.id ? item.id : 'id_' + index.toString()}>
                     {React.createElement(
@@ -39,8 +40,9 @@ function Switcher(props) {
             );
 
             if (item.isActive) {
-                console.log(child[index]);
-                prevChild = ref[index];
+                console.log(child[index].props.children/*.props*/);
+                //prevChild = ref[index];
+                prevChild = child[index];
                 //console.log('prev:', prevChild, prevChild.props.children);
             }
         });
@@ -62,14 +64,13 @@ function Switcher(props) {
     }
 
     function handleClick(e, ref) {
-        console.log(e, ref)
+        //console.log(e, ref)
         //console.log(e.target, ref.current)
-        //console.log('prev:', prevChild, prevChild.props.children);
+        console.log('prev:', prevChild, prevChild.props.children);
 
         if (e.target === prevChild.current) console.log('equal')
     }
 
-    //console.log('1');
     /*    const activeName = props.activeName ? props.activeName : 'active';
         let prev = null;
         const ref = props.items.map(() => React.createRef());

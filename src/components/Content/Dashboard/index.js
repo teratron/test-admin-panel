@@ -14,6 +14,10 @@ const switcherDashboard = {
         id: 'dashboard-tab',
         className: 'tab'
     },
+    itemType: 'a',
+    itemAttr: {
+        className: 'tab-item'
+    },
     items: [
         {
             id: 'tab_chart_id',
@@ -77,10 +81,10 @@ function Dashboard() {
                 {/*<nav className="tab">
                     <Switcher items={itemTabDashboard} activeName="active" />
                 </nav>*/}
-                <Switcher data={switcherDashboard}/>
+                <Switcher data={switcherDashboard} />
             </ContentHeader>
-            <DashboardChart/>
-            <DashboardReport/>
+            <DashboardChart />
+            <DashboardReport />
         </React.Fragment>
     );
 }
