@@ -7,7 +7,7 @@ import Switcher from '../../Switcher';
 
 export const titleDashboard = 'Dashboard';
 
-const switcherDashboard = {
+const dashboardSwitcher = {
     type: 'nav',
     activeName: 'active',
     attr: {
@@ -27,7 +27,7 @@ const switcherDashboard = {
                 href: '/#content-header',
                 className: 'tab-item'
             },
-            isActive: true
+            //isActive: true
         },
         {
             id: 'tab_report_id',
@@ -91,7 +91,7 @@ function Dashboard() {
                 {/*<nav className="tab">
                     <Switcher items={itemTabDashboard} activeName="active" />
                 </nav>*/}
-                <Switcher data={switcherDashboard} />
+                <Switcher data={dashboardSwitcher}/>
             </ContentHeader>
             <DashboardChart />
             <DashboardReport />

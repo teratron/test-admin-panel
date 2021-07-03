@@ -7,6 +7,11 @@ function Switcher(props) {
     const activeName = props.activeName ? props.activeName : 'active';
     const [switcher] = useState(() => switcherParent());
 
+    //console.log(switcher)
+
+    //const [init, setInit] = useState(true);
+    //const [state, setState] = useState();
+
     function switcherParent() {
         if ('type' in props.data) {
             return React.createElement(
@@ -17,12 +22,15 @@ function Switcher(props) {
                 }
             )
         }
+
         return switcherChild();
     }
 
     function switcherChild() {
         const ref = [];
         const child = [];
+        let hasActive = false;
+
         props.data.items.forEach((item, index) => {
             ref[index] = React.createRef();
             child[index] = (
@@ -40,14 +48,26 @@ function Switcher(props) {
             );
 
             if (item.isActive) {
-                //console.log(child[index].props.children/*.props*/);
                 prevChild = ref[index];
-                //prevChild = child[index];
-                //console.log('prev:', prevChild, prevChild.props.children);
+                hasActive = true;
             }
         });
-        return child
+
+        //console.log(child[0].props.children.props, ref[0]);
+        if (!hasActive) {
+            //ref[0].current.classList.add(activeName);
+            prevChild = ref[0];
+            //setActive(child[0]);
+            //child[0].props.children.props.className = activeName;
+        }
+
+        return child;
     }
+
+    /*function setActive(props) {
+        console.log(props.props.children.props.className)
+        props.props.children.props.className = activeName;
+    }*/
 
     function getAttrs(item) {
         if ('className' in item.attr) {
@@ -63,94 +83,18 @@ function Switcher(props) {
         return item.attr;
     }
 
-    function handleClick(/*e, */ref) {
-        //console.log(e, ref)
-        //console.log(e.target, ref.current, prevChild.current.classList[0])
-        //console.log('prev:', prevChild, prevChild.props.children);
+    /*useEffect(() => {
 
-        if (ref !== prevChild/*e.target !== prevChild.current && !e.target.className.includes(activeName)*/) {
+    }, []);
+    */
+
+    function handleClick(ref) {
+        if (ref !== prevChild/*&& !ref.current.className.includes(activeName)*/) {
             ref.current.classList.add(activeName);
             prevChild.current.classList.remove(activeName);
             prevChild = ref;
         }
     }
-
-    /*    const activeName = props.activeName ? props.activeName : 'active';
-        let prev = null;
-        const ref = props.items.map(() => React.createRef());
-        const [switcher] = useState(() => switcherItems());
-
-        function switcherItems() {
-            const child = [];
-            //return props.items.map((item, index) => {
-            props.items.forEach((item, index) => {
-                //return (
-                child[index] = <React.Fragment key={item.id}>
-                    {React.createElement(
-                        item.type,
-                        {
-                            ...getAttrs(item),
-                            ref: ref[index],
-                            children: item.title,
-                            onClick: handleClick
-                        })}
-                </React.Fragment>
-                //);
-                if (item.isActive) {
-                    //console.log(item)
-                    prev = child[index];
-                    console.log('prev:', prev, prev.props.children.props.className, prev.props.children.ref)
-                }
-            });
-            return child
-        }
-
-        function getAttrs(item) {
-            if ('className' in item.attr) {
-                const active = item.isActive && !item.attr.className.includes(activeName)
-                    ? activeName
-                    : '';
-                item.attr.className = item.attr.className
-                    ? active
-                        ? item.attr.className + ' ' + active
-                        : item.attr.className
-                    : active;
-            }
-            return item.attr;
-        }
-
-        //const [init, setInit] = useState(true);
-        //const [state, setState] = useState();
-
-        function handleClick(e) {
-            console.log(ref[0].current, prev.props.className)
-            //ref[0].current.className = ' gogo'
-
-            if (!e.target.className.includes(activeName)) {
-                prev.props.className.replace(activeName, 'aaa');
-                e.target.classList.add(activeName);//console.log(activeName);
-                prev = e.target;
-            } else {
-                console.log('remove ' + activeName);
-            }
-
-            //console.log(e.target.props/!*.children.ref.current.focus()*!/);
-            /!*if (init) {
-                setInit(false);
-            }*!/
-
-            //console.log(e);
-            /!*if (state !== e.target) {
-                state.className.remove(activeName);
-                if (!e.target.className.includes(activeName)) e.target.className.add(activeName);
-                setState(e.target);
-            }*!/
-            //console.log(typeof e.target);
-            //console.log(e.target.className);
-            //e.target.className += ' active';
-            //e.target.classList.remove(activeName);
-            //e.target.className += ' gogo'
-        }*/
 
     return <React.Fragment>{switcher}</React.Fragment>
 }
@@ -160,7 +104,8 @@ function Switcher(props) {
 }*/
 
 Switcher.propTypes = {
-    activeName: PropTypes.string
+    activeName: PropTypes.string,
+    attr: PropTypes.object,
 };
 
 export default Switcher;
