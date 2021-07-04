@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 function Switcher(props) {
     console.log('*+*+**++')
-    let prevRef;
+    let prevRef = null;
     const activeName = props.activeName ? props.activeName : 'active';
     const [switcher] = useState(() => switcherParent());
     const [active, setActive] = useState({});
@@ -90,10 +90,14 @@ function Switcher(props) {
     return <React.Fragment>{switcher}</React.Fragment>
 }
 
+function activeItem() {
+
+}
+
 Switcher.propTypes = {
     activeName: PropTypes.string,
     attr: PropTypes.object,
 };
 
-export { switcherItem };
+export {switcherItem, activeItem};
 export default Switcher;
