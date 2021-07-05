@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -38,9 +38,10 @@ function Switcher(props) {
                         {
                             ...getAttrs(item),
                             ref: ref[index],
-                            children: item.title,
+                            //children: item.title,
                             onClick: () => handleClick(ref[index], item)
-                        }
+                        },
+                        item.title
                     )}
                 </React.Fragment>
             );
@@ -57,7 +58,7 @@ function Switcher(props) {
     }
 
     useEffect(() => {
-        if (prevRef !== undefined && !prevRef.current.className.includes(activeName)) {
+        if (prevRef !== null && !prevRef.current.className.includes(activeName)) {
             prevRef.current.classList.add(activeName);
         }
     }, [prevRef, activeName]);
@@ -81,6 +82,7 @@ function Switcher(props) {
             prevRef.current.classList.remove(activeName);
             ref.current.classList.add(activeName);
             prevRef = ref;
+
             switcherItem = Object.assign({}, item);
             setActive(switcherItem);
             //switcherItem = active;//Object.assign({}, item);
@@ -99,5 +101,5 @@ Switcher.propTypes = {
     attr: PropTypes.object,
 };
 
-export {switcherItem, activeItem};
+export { switcherItem, activeItem };
 export default Switcher;
