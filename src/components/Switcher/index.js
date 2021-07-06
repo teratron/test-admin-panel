@@ -5,20 +5,18 @@ import PropTypes from 'prop-types';
 /*export*/ let switcherItem = {};
 
 function Switcher(props) {
-    console.log('*+*+**++')
+    //console.log('*+*+**++')
     let prevRef = null;
     const activeName = props.activeName ? props.activeName : 'active';
     const [switcher] = useState(() => switcherParent());
-    const [active, setActive] = useState({});
+    //const [active, setActive] = useState({});
 
     function switcherParent() {
         if ('type' in props.data) {
             return React.createElement(
                 props.data.type ? props.data.type : 'div',
-                {
-                    ...props.data.attr,
-                    children: switcherChild()
-                }
+                { ...props.data.attr },
+                switcherChild()
             )
         }
         return switcherChild();
@@ -31,20 +29,16 @@ function Switcher(props) {
 
         props.data.items.forEach((item, index) => {
             ref[index] = React.createRef();
-            child[index] = (
-                <React.Fragment key={item.id ? item.id : 'id_' + index.toString()}>
-                    {React.createElement(
-                        item.type ? item.type : 'span',
-                        {
-                            ...getAttrs(item),
-                            ref: ref[index],
-                            //children: item.title,
-                            onClick: () => handleClick(ref[index], item)
-                        },
-                        item.title
-                    )}
-                </React.Fragment>
-            );
+            child[index] = React.createElement(
+                item.type ? item.type : 'span',
+                {
+                    key: item.id ? item.id : 'id_' + index.toString(),
+                    ref: ref[index],
+                    onClick: () => handleClick(ref[index], item),
+                    ...getAttr(item)
+                },
+                item.title
+            )
 
             if (item.isActive) {
                 prevRef = ref[index];
@@ -63,7 +57,7 @@ function Switcher(props) {
         }
     }, [prevRef, activeName]);
 
-    function getAttrs(item) {
+    function getAttr(item) {
         if ('className' in item.attr) {
             const active = item.isActive && !item.attr.className.includes(activeName)
                 ? activeName
@@ -84,7 +78,7 @@ function Switcher(props) {
             prevRef = ref;
 
             switcherItem = Object.assign({}, item);
-            setActive(switcherItem);
+            //setActive(switcherItem);
             //switcherItem = active;//Object.assign({}, item);
         }
     }
