@@ -47,14 +47,14 @@ import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
-/*export*/ let switcherItem = {};
+let switcherItem = {};
 
 function Switcher(props) {
     //console.log('*+*+**++')
     let prevRef = null;
     const activeName = props.activeName ? props.activeName : 'active';
     const [switcher] = useState(() => switcherParent());
-    //const [active, setActive] = useState({});
+    const [active, setActive] = useState('ddd');
 
     function switcherParent() {
         if ('type' in props.data) {
@@ -122,7 +122,8 @@ function Switcher(props) {
             ref.current.classList.add(activeName);
             prevRef = ref;
 
-            switcherItem = Object.assign({}, item);
+            switcherItem = setActive;
+            //switcherItem = Object.assign({}, item);
             //setActive(switcherItem);
             //switcherItem = active;//Object.assign({}, item);
         }
@@ -132,7 +133,7 @@ function Switcher(props) {
 }
 
 function activeItem() {
-
+    console.log('activeItem()');
 }
 
 Switcher.propTypes = {
@@ -140,5 +141,5 @@ Switcher.propTypes = {
     attr: PropTypes.object,
 };
 
-export { switcherItem, activeItem };
+export { switcherItem/*, activeItem*/ };
 export default Switcher;

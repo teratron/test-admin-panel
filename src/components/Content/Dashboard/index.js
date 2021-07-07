@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Switcher, { switcherItem } from '../../Switcher';
+import Switcher, { switcherItem /*activeItem*/ } from '../../Switcher';
 import ContentHeader from '../Header';
 import DashboardChart from './Chart';
 import DashboardReport from './Report';
@@ -54,7 +54,8 @@ const dashboardSwitcher = {
 };
 
 function Dashboard() {
-    //console.log(switcherItem);
+    console.log(switcherItem);
+    //activeItem()
     return (
         <React.Fragment>
             <ContentHeader title={titleDashboard}>
