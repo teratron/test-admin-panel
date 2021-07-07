@@ -14,16 +14,12 @@ const dashboardSwitcher = {
         id: 'dashboard-tab',
         className: 'tab'
     },
-    /*itemType: 'a',
-    itemAttr: {
-        className: 'tab-item'
-    },
     item: {
         type: 'a',
         attr: {
             className: 'tab-item'
         },
-    },*/
+    },
     items: [
         {
             id: 'tab_chart_id',
@@ -33,7 +29,7 @@ const dashboardSwitcher = {
                 href: '/#content-header',
                 className: 'tab-item'
             },
-            //isActive: true
+            isActive: true
         },
         {
             id: 'tab_report_id',
@@ -43,7 +39,6 @@ const dashboardSwitcher = {
                 href: '/#content-header',
                 className: 'tab-item'
             },
-            isActive: true
         },
         {
             id: 'tab_report2_id',
