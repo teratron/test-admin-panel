@@ -1,17 +1,21 @@
-### Usage
-```jsx
-    import Switcher, { switcherItem /*activeItem*/ } from './Switcher';
+## Usage
 
-    // ...
-    <App>
+```jsx
+import Switcher, { switcherItem /*activeItem*/ } from './Switcher';
+
+export default function App() {
+    return (
         <Header>
             <Switcher data={dataSet} />
         </Header>
-    </App>
-    // ...
+        <Main>
+        </Main>
+    );
+}
 ```
 
-### Config
+## Configs
+
 ```javascript
     const dataSet = {
         items: [

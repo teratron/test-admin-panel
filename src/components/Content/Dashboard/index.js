@@ -57,7 +57,7 @@ function Dashboard() {
     console.log(switcherItem);
     //activeItem()
     return (
-        <React.Fragment>
+        <>
             <ContentHeader title={titleDashboard}>
                 {/*<nav className="tab">
                     <Switcher items={itemTabDashboard} activeName="active" />
@@ -66,7 +66,7 @@ function Dashboard() {
             </ContentHeader>
             <DashboardChart />
             <DashboardReport />
-        </React.Fragment>
+        </>
     );
 }
 
