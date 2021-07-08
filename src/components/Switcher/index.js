@@ -1,53 +1,17 @@
-/*
-
-```jsx
-    <Switcher data={data} />
-```
-
-    const data = {
-        type: 'nav',
-        activeName: 'active',
-        attr: {
-            id: 'dashboard-tab',
-            className: 'tab'
-        },
-        item: {
-            type: 'a',
-            attr: {
-                className: 'tab-item'
-            },
-        },
-        items: [
-            {
-                id: 'tab_chart_id',
-                type: 'a',
-                title: 'Chart',
-                attr: {
-                    href: '/#content-header',
-                    className: 'tab-item'
-                },
-                isActive: true
-            },
-            {
-                id: 'tab_report_id',
-                type: 'a',
-                title: 'Report',
-                attr: {
-                    href: '/#content-header',
-                    className: 'tab-item'
-                },
-                isDisable: true
-            }
-        ]
-    };
-
-*/
-
 import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
 let switcherItem = {};
+
+const ret = {
+    ref: null,
+    item: null,
+    prev: {
+        ref: null,
+        item: null
+    }
+};
 
 function Switcher(props) {
     //console.log('*+*+**++')
