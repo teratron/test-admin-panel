@@ -17,7 +17,7 @@ const dashboardSwitcher = {
     item: {
         type: 'a',
         attr: {
-            className: 'tab-item'
+            className: 'tab-item_'
         },
     },
     items: [

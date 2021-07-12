@@ -36,20 +36,25 @@ function Switcher(props) {
         const child = [];
         let hasActive = false;
 
-        props.data.items.forEach((item, index) => {
+        props.data.items.forEach((value, index) => {
             ref[index] = React.createRef();
             child[index] = React.createElement(
-                item.type ? item.type : 'span',
+                value.type
+                    ? value.type
+                    : 'item' in props.data && 'type' in props.data.item
+                        //: props.data.item.type
+                        ? props.data.item.type
+                        : 'span',
                 {
-                    key: item.id ? item.id : 'id_' + index.toString(),
                     ref: ref[index],
-                    onClick: () => handleClick(ref[index], item),
-                    ...getAttr(item)
+                    key: value.id ? value.id : 'id_' + index.toString(),
+                    onClick: () => handleClick(ref[index], value),
+                    ...getAttr(value, props.data.item.attr)
                 },
-                item.title ? item.title : 'case_' + index.toString()
+                value.title ? value.title : 'case_' + index.toString()
             )
 
-            if (item.isActive) {
+            if (value.isActive) {
                 prevRef = ref[index];
                 hasActive = true;
             }
@@ -66,7 +71,7 @@ function Switcher(props) {
         }
     }, [prevRef, activeName]);
 
-    function getAttr(item) {
+    function getAttr(item, attr) {
         if ('className' in item.attr) {
             const active = item.isActive && !item.attr.className.includes(activeName)
                 ? activeName
