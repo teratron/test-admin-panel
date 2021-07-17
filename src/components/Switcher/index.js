@@ -18,7 +18,14 @@ function Switcher(props) {
     let prevRef = null;
     const activeName = props.activeName ? props.activeName : 'active';
     const [switcher] = useState(() => switcherParent());
-    const [active, setActive] = useState('ddd');
+    const [active, setActive] = useState({
+        ref: null,
+        item: null,
+        prev: {
+            ref: null,
+            item: null
+        }
+    });
 
     function switcherParent() {
         if ('type' in props.data) {
