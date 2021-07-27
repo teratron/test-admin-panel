@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -16,7 +16,8 @@ const ret = {
 function Switcher(props) {
     //console.log('*+*+**++')
     let prevRef = null;
-    const activeName = props.activeName ? props.activeName : 'active';
+    const data = props.data;
+    const activeName = data.activeName ? data.activeName : 'active';
     const [switcher] = useState(() => switcherParent());
     const [active, setActive] = useState({
         ref: null,
@@ -28,10 +29,10 @@ function Switcher(props) {
     });
 
     function switcherParent() {
-        if ('type' in props.data) {
+        if ('type' in data) {
             return React.createElement(
-                props.data.type ? props.data.type : 'div',
-                { ...props.data.attr },
+                data.type ? data.type : 'div',
+                {...data.attr},
                 switcherChild()
             )
         }
@@ -39,26 +40,27 @@ function Switcher(props) {
     }
 
     function switcherChild() {
+        const attr = data.item.attr ? data.item.attr : {};
         const ref = [];
         const child = [];
         let hasActive = false;
 
-        props.data.items.forEach((value, index) => {
+        data.items.forEach((value, index) => {
+            //attr = ;
             ref[index] = React.createRef();
             child[index] = React.createElement(
                 value.type
                     ? value.type
-                    : 'item' in props.data && 'type' in props.data.item
-                        //: props.data.item.type
-                        ? props.data.item.type
-                        : 'span',
+                    : 'item' in data && 'type' in data.item //: data.item.type
+                    ? data.item.type
+                    : 'span',
                 {
                     ref: ref[index],
                     key: value.id ? value.id : 'id_' + index.toString(),
                     onClick: () => handleClick(ref[index], value),
-                    ...getAttr(value, props.data.item.attr)
+                    ...getAttr(value, attr)
                 },
-                value.title ? value.title : 'case_' + index.toString()
+                value.title ? value.title : 'item_' + index.toString()
             )
 
             if (value.isActive) {
@@ -79,43 +81,77 @@ function Switcher(props) {
     }, [prevRef, activeName]);
 
     function getAttr(item, attr) {
-        if ('className' in item.attr) {
-            const active = item.isActive && !item.attr.className.includes(activeName)
-                ? activeName
-                : '';
+        if ('attr' in item) {
+
+        } else if ('className' in attr) {
+            return
+        }
+
+
+        const active = item.isActive /*&& !item.attr.className.includes(activeName)*/
+            ? activeName
+            : '';
+        //if ('className' in item.attr) {
+        item.attr.className = item.attr.className
+            ? active
+                ? item.attr.className + ' ' + active
+                : item.attr.className
+            : active;
+        //}
+        return item.attr;
+    }
+
+    /*function setActive(item) {
+        const active = item.isActive && !item.attr.className.includes(activeName)
+            ? activeName
+            : '';
+        //if ('className' in item.attr) {
             item.attr.className = item.attr.className
                 ? active
                     ? item.attr.className + ' ' + active
                     : item.attr.className
                 : active;
-        }
+        //}
         return item.attr;
-    }
+    }*/
 
     function handleClick(ref, item) {
+        setActive({
+            ref: ref,
+            item: item,
+            prev: {
+                ref: null,
+                item: null
+            }
+        });
         if (ref !== prevRef) {
             prevRef.current.classList.remove(activeName);
             ref.current.classList.add(activeName);
             prevRef = ref;
 
-            switcherItem = setActive;
+
+            switcherItem = active//setActive();
+
             //switcherItem = Object.assign({}, item);
             //setActive(switcherItem);
             //switcherItem = active;//Object.assign({}, item);
+
+
+            if ('func' in item) item.func()//console.log(item.func());
         }
     }
 
     return <React.Fragment>{switcher}</React.Fragment>
 }
 
-function activeItem() {
+/*function activeItem() {
     console.log('activeItem()');
-}
+}*/
 
 Switcher.propTypes = {
     activeName: PropTypes.string,
     attr: PropTypes.object,
 };
 
-export { switcherItem/*, activeItem*/ };
+export {switcherItem/*, activeItem*/};
 export default Switcher;

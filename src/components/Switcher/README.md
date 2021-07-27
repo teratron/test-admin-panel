@@ -8,8 +8,6 @@ export default function App() {
         <Header>
             <Switcher data={dataSet} />
         </Header>
-        <Main />
-        <Footer />
     );
 }
 ```

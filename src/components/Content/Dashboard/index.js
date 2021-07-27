@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Switcher, { switcherItem /*activeItem*/ } from '../../Switcher';
+import Switcher, {switcherItem} from '../../Switcher';
 import ContentHeader from '../Header';
 import DashboardChart from './Chart';
 import DashboardReport from './Report';
@@ -29,6 +29,9 @@ const dashboardSwitcher = {
                 href: '/#content-header',
                 className: 'tab-item'
             },
+            func: () => {
+                console.log('id_1');
+            },
             isActive: true
         },
         {
@@ -39,6 +42,9 @@ const dashboardSwitcher = {
                 href: '/#content-header',
                 className: 'tab-item'
             },
+            func: function () {
+                console.log('id_2');
+            }
         },
         {
             id: 'tab_report2_id',
@@ -59,13 +65,10 @@ function Dashboard() {
     return (
         <>
             <ContentHeader title={titleDashboard}>
-                {/*<nav className="tab">
-                    <Switcher items={itemTabDashboard} activeName="active" />
-                </nav>*/}
-                <Switcher data={dashboardSwitcher} />
+                <Switcher data={dashboardSwitcher}/>
             </ContentHeader>
-            <DashboardChart />
-            <DashboardReport />
+            <DashboardChart/>
+            <DashboardReport/>
         </>
     );
 }
