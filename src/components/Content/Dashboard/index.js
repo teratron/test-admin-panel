@@ -17,8 +17,10 @@ const dashboardSwitcher = {
     item: {
         type: 'a',
         attr: {
-            className: 'tab-item_'
-        },
+            href: '/#content-header__',
+            className: 'tab-item__  ab    aa',
+            style: {backgroundColor: 'red'}
+        }
     },
     items: [
         {
@@ -27,7 +29,7 @@ const dashboardSwitcher = {
             title: 'Chart',
             attr: {
                 href: '/#content-header',
-                className: 'tab-item'
+                className: 'tab-item aa'
             },
             func: () => {
                 console.log('id_1');
@@ -40,7 +42,7 @@ const dashboardSwitcher = {
             title: 'Report',
             attr: {
                 href: '/#content-header',
-                className: 'tab-item'
+                className: 'tab-item bb'
             },
             func: function () {
                 console.log('id_2');
@@ -52,7 +54,7 @@ const dashboardSwitcher = {
             title: 'Report2',
             attr: {
                 href: '/#content-header',
-                className: 'tab-item'
+                className: 'tab-item cc'
             },
             isDisable: true
         }

@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 
 let switcherItem = {};
 
-const ret = {
+/*const ret = {
     ref: null,
     item: null,
     prev: {
         ref: null,
         item: null
     }
-};
+};*/
 
 function Switcher(props) {
     //console.log('*+*+**++')
@@ -40,30 +40,31 @@ function Switcher(props) {
     }
 
     function switcherChild() {
-        const attr = data.item.attr ? data.item.attr : {};
+        let hasActive = false;
         const ref = [];
         const child = [];
-        let hasActive = false;
+        const attr = data.item && data.item.attr
+            ? data.item.attr
+            : null;
 
-        data.items.forEach((value, index) => {
-            //attr = ;
+        data.items.forEach((item, index) => {
             ref[index] = React.createRef();
             child[index] = React.createElement(
-                value.type
-                    ? value.type
-                    : 'item' in data && 'type' in data.item //: data.item.type
+                item.type
+                    ? item.type
+                    : data.item && data.item.type
                     ? data.item.type
                     : 'span',
                 {
                     ref: ref[index],
-                    key: value.id ? value.id : 'id_' + index.toString(),
-                    onClick: () => handleClick(ref[index], value),
-                    ...getAttr(value, attr)
+                    key: item.id ? item.id : 'id_' + index.toString(),
+                    onClick: () => handleClick(ref[index], item),
+                    ...getAttr(attr, item)
                 },
-                value.title ? value.title : 'item_' + index.toString()
+                item.title ? item.title : 'item_' + index.toString()
             )
 
-            if (value.isActive) {
+            if (item.isActive) {
                 prevRef = ref[index];
                 hasActive = true;
             }
@@ -80,24 +81,43 @@ function Switcher(props) {
         }
     }, [prevRef, activeName]);
 
-    function getAttr(item, attr) {
-        if ('attr' in item) {
-
-        } else if ('className' in attr) {
-            return
+    function getAttr(attr, item) {
+        if (attr !== null && item.attr) {
+            Object.keys(attr).forEach(key => {
+                switch (key) {
+                    case 'className':
+                        if (attr.className !== '' && 'className' in item.attr && item.attr.className !== '') {
+                            let a = attr.className.trim().split(/\s+/);
+                            let b = item.attr.className.trim().split(/\s+/).concat(a);
+                            console.log(a, b);
+                            //console.log(attr[key], item.attr.className);
+                        }
+                        break;
+                    case 'style':
+                        console.log(attr[key]);
+                        break;
+                    default:
+                        break;
+                }
+            });
+        } else {
+            console.log('-----------');
         }
 
+        /*else if ('className' in attr) {
+            return
+        }*/
 
-        const active = item.isActive /*&& !item.attr.className.includes(activeName)*/
-            ? activeName
-            : '';
-        //if ('className' in item.attr) {
-        item.attr.className = item.attr.className
-            ? active
-                ? item.attr.className + ' ' + active
-                : item.attr.className
-            : active;
-        //}
+        if ('className' in item.attr) {
+            const active = item.isActive && !item.attr.className.includes(activeName)
+                ? activeName
+                : '';
+            item.attr.className = item.attr.className
+                ? active
+                    ? item.attr.className + ' ' + active
+                    : item.attr.className
+                : active;
+        }
         return item.attr;
     }
 
