@@ -44,7 +44,7 @@ function Switcher(props) {
         const ref = [];
         const child = [];
         const attr = data.item && data.item.attr
-            ? data.item.attr
+            ? (data.item.attr)
             : null;
 
         data.items.forEach((item, index) => {
@@ -87,10 +87,18 @@ function Switcher(props) {
                 switch (key) {
                     case 'className':
                         if (attr.className !== '' && 'className' in item.attr && item.attr.className !== '') {
-                            let a = attr.className.trim().split(/\s+/);
-                            let b = item.attr.className.trim().split(/\s+/).concat(a);
-                            console.log(a, b);
-                            //console.log(attr[key], item.attr.className);
+                            let a = attr.className
+                                .trim()
+                                .split(/\s+/);
+
+                            item.attr.className = a.concat(
+                                item.attr.className
+                                    .trim()
+                                    .split(/\s+/)
+                                    .filter(value => !a.includes(value)))
+                                .join(' ');
+
+                            console.log(a);
                         }
                         break;
                     case 'style':
@@ -100,8 +108,6 @@ function Switcher(props) {
                         break;
                 }
             });
-        } else {
-            console.log('-----------');
         }
 
         /*else if ('className' in attr) {

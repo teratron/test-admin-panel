@@ -18,7 +18,7 @@ const dashboardSwitcher = {
         type: 'a',
         attr: {
             href: '/#content-header__',
-            className: 'tab-item__  ab    aa',
+            className: 'tab-item__  ab    aa cc bb',
             style: {backgroundColor: 'red'}
         }
     },
@@ -29,7 +29,7 @@ const dashboardSwitcher = {
             title: 'Chart',
             attr: {
                 href: '/#content-header',
-                className: 'tab-item aa'
+                className: 'tab-item aa cc'
             },
             func: () => {
                 console.log('id_1');
