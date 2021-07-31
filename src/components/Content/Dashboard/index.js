@@ -18,6 +18,7 @@ const dashboardSwitcher = {
         type: 'a',
         attr: {
             href: '/#content-header__',
+            'data-open': '123',
             className: 'tab-item__  ab    aa cc bb',
             style: {
                 backgroundColor: 'red',
@@ -62,6 +63,7 @@ const dashboardSwitcher = {
             type: 'a',
             title: 'Report2',
             attr: {
+                'data-open': '456',
                 //href: '/#content-header',
                 //className: 'tab-item cc'
             },

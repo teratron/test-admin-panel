@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -36,16 +36,6 @@ function Switcher(props) {
                 {...data.attr},
                 switcherChild())
             : switcherChild();
-
-
-        /*if ('type' in data) {
-            return React.createElement(
-                data.type ? data.type : 'div',
-                {...data.attr},
-                switcherChild()
-            )
-        }
-        return switcherChild();*/
     }
 
     function switcherChild() {
@@ -59,9 +49,7 @@ function Switcher(props) {
             child[index] = React.createElement(
                 item.type
                     ? item.type
-                    : data.item && data.item.type
-                    ? data.item.type
-                    : 'span',
+                    : data.item && data.item.type ? data.item.type : 'span',
                 {
                     ref: ref[index],
                     key: item.id ? item.id : 'id_' + index.toString(),
@@ -82,11 +70,11 @@ function Switcher(props) {
         return child;
     }
 
-    /*useEffect(() => {
-        if (prevRef !== null && prevRef.current.className && !prevRef.current.className.includes(activeName)) {
+    useEffect(() => {
+        if (prevRef !== null && /*prevRef.current.className &&*/ !prevRef.current.className.includes(activeName)) {
             prevRef.current.classList.add(activeName);
         }
-    }, [prevRef, activeName]);*/
+    }, [prevRef, activeName]);
 
     function getAttr(attr, item) {
         if (attr !== null && item.attr) {
@@ -104,61 +92,25 @@ function Switcher(props) {
                                     .split(/\s+/)
                                     .filter(value => !a.includes(value)))
                                 .join(' ');
-                            //console.log(a);
                         }
                         break;
                     case 'style':
-                        //console.log('***', attr[key], item.attr[key], Object.assign({}, attr[key],item.attr[key]));
                         item.attr[key] = Object.assign({}, attr[key], item.attr[key]);
                         break;
                     default:
+                        if (attr[key] && !item.attr[key]) item.attr[key] = attr[key];
                         break;
                 }
             });
         }
 
-        //if ('className' in item.attr) {
-        /*const active = item.isActive /!*&& !item.attr.className.includes(activeName)*!/
-            ? activeName
-            : '';*/
-        //console.log(active);
-        //item.attr.className = 's';
         if (item.isActive) {
             if (item.attr.className === undefined) item.attr.className = activeName;
             else if (!item.attr.className.includes(activeName)) item.attr.className += ' ' + activeName;
-            console.log('********s', item.attr.className);
         }
 
-        /*if (item.attr.className !== undefined) {
-            console.log(item.attr.className);
-            item.attr.className = active;
-        } else {
-            console.log('%%%', item.attr.className);
-            if (active) item.attr.className += '- ' + active;
-        }*/
-
-        /*item.attr.className = item.attr.className
-            ? active
-                ? item.attr.className + ' ' + active
-                : item.attr.className
-            : active;*/
-        //}
         return item.attr;
     }
-
-    /*function setActive(item) {
-        const active = item.isActive && !item.attr.className.includes(activeName)
-            ? activeName
-            : '';
-        //if ('className' in item.attr) {
-            item.attr.className = item.attr.className
-                ? active
-                    ? item.attr.className + ' ' + active
-                    : item.attr.className
-                : active;
-        //}
-        return item.attr;
-    }*/
 
     function handleClick(ref, item) {
         setActive({
