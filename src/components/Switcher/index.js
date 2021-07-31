@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -18,7 +18,8 @@ function Switcher(props) {
     let prevRef = null;
     const data = props.data;
     const activeName = data.activeName ? data.activeName : 'active';
-    const [switcher] = useState(() => switcherParent());
+    const [switcher] = useState(switcherParent());
+    //const switcher = switcherParent();
     const [active, setActive] = useState({
         ref: null,
         item: null,
@@ -29,23 +30,29 @@ function Switcher(props) {
     });
 
     function switcherParent() {
-        if ('type' in data) {
+        return data.type
+            ? React.createElement(
+                data.type ? data.type : 'div',
+                {...data.attr},
+                switcherChild())
+            : switcherChild();
+
+
+        /*if ('type' in data) {
             return React.createElement(
                 data.type ? data.type : 'div',
                 {...data.attr},
                 switcherChild()
             )
         }
-        return switcherChild();
+        return switcherChild();*/
     }
 
     function switcherChild() {
         let hasActive = false;
         const ref = [];
         const child = [];
-        const attr = data.item && data.item.attr
-            ? (data.item.attr)
-            : null;
+        const attr = data.item && data.item.attr ? data.item.attr : null;
 
         data.items.forEach((item, index) => {
             ref[index] = React.createRef();
@@ -75,11 +82,11 @@ function Switcher(props) {
         return child;
     }
 
-    useEffect(() => {
-        if (prevRef !== null && !prevRef.current.className.includes(activeName)) {
+    /*useEffect(() => {
+        if (prevRef !== null && prevRef.current.className && !prevRef.current.className.includes(activeName)) {
             prevRef.current.classList.add(activeName);
         }
-    }, [prevRef, activeName]);
+    }, [prevRef, activeName]);*/
 
     function getAttr(attr, item) {
         if (attr !== null && item.attr) {
@@ -97,12 +104,12 @@ function Switcher(props) {
                                     .split(/\s+/)
                                     .filter(value => !a.includes(value)))
                                 .join(' ');
-
-                            console.log(a);
+                            //console.log(a);
                         }
                         break;
                     case 'style':
-                        console.log(attr[key]);
+                        //console.log('***', attr[key], item.attr[key], Object.assign({}, attr[key],item.attr[key]));
+                        item.attr[key] = Object.assign({}, attr[key], item.attr[key]);
                         break;
                     default:
                         break;
@@ -110,20 +117,32 @@ function Switcher(props) {
             });
         }
 
-        /*else if ('className' in attr) {
-            return
+        //if ('className' in item.attr) {
+        /*const active = item.isActive /!*&& !item.attr.className.includes(activeName)*!/
+            ? activeName
+            : '';*/
+        //console.log(active);
+        //item.attr.className = 's';
+        if (item.isActive) {
+            if (item.attr.className === undefined) item.attr.className = activeName;
+            else if (!item.attr.className.includes(activeName)) item.attr.className += ' ' + activeName;
+            console.log('********s', item.attr.className);
+        }
+
+        /*if (item.attr.className !== undefined) {
+            console.log(item.attr.className);
+            item.attr.className = active;
+        } else {
+            console.log('%%%', item.attr.className);
+            if (active) item.attr.className += '- ' + active;
         }*/
 
-        if ('className' in item.attr) {
-            const active = item.isActive && !item.attr.className.includes(activeName)
-                ? activeName
-                : '';
-            item.attr.className = item.attr.className
-                ? active
-                    ? item.attr.className + ' ' + active
-                    : item.attr.className
-                : active;
-        }
+        /*item.attr.className = item.attr.className
+            ? active
+                ? item.attr.className + ' ' + active
+                : item.attr.className
+            : active;*/
+        //}
         return item.attr;
     }
 

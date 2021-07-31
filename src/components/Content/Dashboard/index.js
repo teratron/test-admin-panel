@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Switcher, {switcherItem} from '../../Switcher';
+import Switcher from '../../Switcher';
 import ContentHeader from '../Header';
 import DashboardChart from './Chart';
 import DashboardReport from './Report';
@@ -19,7 +19,11 @@ const dashboardSwitcher = {
         attr: {
             href: '/#content-header__',
             className: 'tab-item__  ab    aa cc bb',
-            style: {backgroundColor: 'red'}
+            style: {
+                backgroundColor: 'red',
+                color: 'green',
+                outline: '2px solid yellow'
+            }
         }
     },
     items: [
@@ -29,7 +33,12 @@ const dashboardSwitcher = {
             title: 'Chart',
             attr: {
                 href: '/#content-header',
-                className: 'tab-item aa cc'
+                //className: 'tab-item aa cc',
+                style: {
+                    backgroundColor: 'blue',
+                    color: 'red',
+                    zIndex: '1000'
+                }
             },
             func: () => {
                 console.log('id_1');
@@ -42,7 +51,7 @@ const dashboardSwitcher = {
             title: 'Report',
             attr: {
                 href: '/#content-header',
-                className: 'tab-item bb'
+                //className: 'tab-item bb'
             },
             func: function () {
                 console.log('id_2');
@@ -53,8 +62,8 @@ const dashboardSwitcher = {
             type: 'a',
             title: 'Report2',
             attr: {
-                href: '/#content-header',
-                className: 'tab-item cc'
+                //href: '/#content-header',
+                //className: 'tab-item cc'
             },
             isDisable: true
         }
@@ -62,7 +71,7 @@ const dashboardSwitcher = {
 };
 
 function Dashboard() {
-    console.log(switcherItem);
+    //console.log(switcherItem);
     //activeItem()
     return (
         <>
