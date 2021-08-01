@@ -10,6 +10,7 @@ export const titleDashboard = 'Dashboard';
 const dashboardSwitcher = {
     type: 'nav',
     activeName: 'active',
+    disableName: 'disabled',
     attr: {
         id: 'dashboard-tab',
         className: 'tab'
@@ -50,10 +51,10 @@ const dashboardSwitcher = {
             id: 'tab_report_id',
             type: 'a',
             title: 'Report',
-            attr: {
+            /*attr: {
                 href: '/#content-header',
                 //className: 'tab-item bb'
-            },
+            },*/
             func: function () {
                 console.log('id_2');
             }

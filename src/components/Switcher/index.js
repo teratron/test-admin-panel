@@ -15,11 +15,11 @@ let switcherItem = {};
 
 function Switcher(props) {
     //console.log('*+*+**++')
-    let prevRef = null;
-    const data = props.data;
+    let prevRef/* = null*/;
+    const data = !props.data || (props.data && !props.data.items) ? {items: [{}]} : props.data;
     const activeName = data.activeName ? data.activeName : 'active';
+    const disableName = data.disableName ? data.disableName : 'disabled';
     const [switcher] = useState(switcherParent());
-    //const switcher = switcherParent();
     const [active, setActive] = useState({
         ref: null,
         item: null,
@@ -42,7 +42,7 @@ function Switcher(props) {
         let hasActive = false;
         const ref = [];
         const child = [];
-        const attr = data.item && data.item.attr ? data.item.attr : null;
+        const attr = data.item && data.item.attr ? data.item.attr : null; // TODO:
 
         data.items.forEach((item, index) => {
             ref[index] = React.createRef();
@@ -71,42 +71,63 @@ function Switcher(props) {
     }
 
     useEffect(() => {
-        if (prevRef !== null && /*prevRef.current.className &&*/ !prevRef.current.className.includes(activeName)) {
+        //console.log(prevRef);
+        if (/*prevRef !== null && */prevRef.current !== null && !prevRef.current.className.includes(activeName)) {
+            //console.log(prevRef);
             prevRef.current.classList.add(activeName);
         }
     }, [prevRef, activeName]);
 
     function getAttr(attr, item) {
-        if (attr !== null && item.attr) {
+        if (attr !== null /*&& item.attr*/) {
             Object.keys(attr).forEach(key => {
                 switch (key) {
                     case 'className':
-                        if (attr.className !== '' && 'className' in item.attr && item.attr.className !== '') {
-                            let a = attr.className
-                                .trim()
-                                .split(/\s+/);
-
-                            item.attr.className = a.concat(
-                                item.attr.className
+                        if (attr.className !== '') {
+                            if (item.attr.className && item.attr.className !== '') {
+                                let a = attr.className
                                     .trim()
-                                    .split(/\s+/)
-                                    .filter(value => !a.includes(value)))
-                                .join(' ');
+                                    .split(/\s+/);
+
+                                item.attr.className = a.concat(
+                                    item.attr.className
+                                        .trim()
+                                        .split(/\s+/)
+                                        .filter(value => !a.includes(value)))
+                                    .join(' ');
+                            } else {
+                                item.attr.className = attr.className;
+                            }
                         }
                         break;
                     case 'style':
-                        item.attr[key] = Object.assign({}, attr[key], item.attr[key]);
+                        item.attr.style = Object.assign({}, attr.style, item.attr.style);
                         break;
                     default:
-                        if (attr[key] && !item.attr[key]) item.attr[key] = attr[key];
+                        //if (attr[key]) {
+                        if (!item.attr || (item.attr && !item.attr[key])) {
+                            item.attr[key] = attr[key];
+                        }
+                        //}
                         break;
                 }
             });
+        }
+        const addClassName = function (name, is) {
+            if (item[is]) {
+                if (item.attr.className === undefined) item.attr.className = name;
+                else if (!item.attr.className.includes(name)) item.attr.className += ' ' + name;
+            }
         }
 
         if (item.isActive) {
             if (item.attr.className === undefined) item.attr.className = activeName;
             else if (!item.attr.className.includes(activeName)) item.attr.className += ' ' + activeName;
+        }
+
+        if (item.isDisable) {
+            if (item.attr.className === undefined) item.attr.className = disableName;
+            else if (!item.attr.className.includes(disableName)) item.attr.className += ' ' + disableName;
         }
 
         return item.attr;
@@ -126,7 +147,7 @@ function Switcher(props) {
             ref.current.classList.add(activeName);
             prevRef = ref;
 
-
+// TODO:
             switcherItem = active//setActive();
 
             //switcherItem = Object.assign({}, item);
@@ -145,8 +166,11 @@ function Switcher(props) {
     console.log('activeItem()');
 }*/
 
-Switcher.propTypes = {
+Switcher.propTypes = {// TODO:
     activeName: PropTypes.string,
+    disableName: PropTypes.string,
+    isActive: PropTypes.bool,
+    isDisable: PropTypes.bool,
     attr: PropTypes.object,
 };
 
