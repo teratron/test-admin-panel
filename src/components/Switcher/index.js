@@ -106,7 +106,7 @@ function Switcher(props) {
                     default:
                         //if (attr[key]) {
                         if (!item.attr || (item.attr && !item.attr[key])) {
-                            item.attr[key] = attr[key];
+                            item.attr.prototype[key] = attr[key];
                         }
                         //}
                         break;
