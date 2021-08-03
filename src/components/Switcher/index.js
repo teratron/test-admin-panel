@@ -57,7 +57,7 @@ function Switcher(props) {
                     ...getAttr(attr, item)
                 },
                 item.title ? item.title : 'item_' + index.toString()
-            )
+            );
 
             if (item.isActive) {
                 prevRef = ref[index];
@@ -113,14 +113,17 @@ function Switcher(props) {
                 }
             });
         }
-        const addClassName = function (name, is) {
+
+        const addClassName = function (is, name) {
             if (item[is]) {
-                if (item.attr.className === undefined) item.attr.className = name;
+                if (!item.attr.className/* === undefined*/) item.attr.className = name;
                 else if (!item.attr.className.includes(name)) item.attr.className += ' ' + name;
             }
         }
+        addClassName('isActive', activeName);
+        addClassName('isDisable', disableName);
 
-        if (item.isActive) {
+        /*if (item.isActive) {
             if (item.attr.className === undefined) item.attr.className = activeName;
             else if (!item.attr.className.includes(activeName)) item.attr.className += ' ' + activeName;
         }
@@ -128,7 +131,7 @@ function Switcher(props) {
         if (item.isDisable) {
             if (item.attr.className === undefined) item.attr.className = disableName;
             else if (!item.attr.className.includes(disableName)) item.attr.className += ' ' + disableName;
-        }
+        }*/
 
         return item.attr;
     }
