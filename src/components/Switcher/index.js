@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -16,7 +16,7 @@ let switcherItem = {};
 function Switcher(props) {
     //console.log('*+*+**++')
     let prevRef/* = null*/;
-    const data = !props.data || (props.data && !props.data.items) ? {items: [{}]} : props.data;
+    const data = !props.data || (props.data && !props.data.items) ? { items: [{}] } : props.data;
     const activeName = data.activeName ? data.activeName : 'active';
     const disableName = data.disableName ? data.disableName : 'disabled';
     const [switcher] = useState(switcherParent());
@@ -33,7 +33,7 @@ function Switcher(props) {
         return data.type
             ? React.createElement(
                 data.type ? data.type : 'div',
-                {...data.attr},
+                { ...data.attr },
                 switcherChild())
             : switcherChild();
     }
@@ -83,8 +83,8 @@ function Switcher(props) {
             Object.keys(attr).forEach(key => {
                 switch (key) {
                     case 'className':
-                        if (attr.className !== '') {
-                            if (item.attr.className && item.attr.className !== '') {
+                        if (attr.className !== '' && item.attr?.className) {
+                            if (/*item.attr?.className &&*/ item.attr.className !== '') {
                                 let a = attr.className
                                     .trim()
                                     .split(/\s+/);
@@ -104,10 +104,13 @@ function Switcher(props) {
                         item.attr.style = Object.assign({}, attr.style, item.attr.style);
                         break;
                     default:
+                        console.log(item?.attr, item.attr?.[key], key);
                         //if (attr[key]) {
-                        if (!item.attr || (item.attr && !item.attr[key])) {
-                            item.attr.prototype[key] = attr[key];
-                        }
+                        /*if (!item.attr || (item.attr && !item.attr[key])) {
+                            console.log(item.attr, item.attr[key], key);
+                            //item.attr.prototype[key] = attr[key];
+                            item.attr[key] = attr[key];
+                        }*/
                         //}
                         break;
                 }
@@ -150,7 +153,7 @@ function Switcher(props) {
             ref.current.classList.add(activeName);
             prevRef = ref;
 
-// TODO:
+            // TODO:
             switcherItem = active//setActive();
 
             //switcherItem = Object.assign({}, item);
@@ -177,5 +180,5 @@ Switcher.propTypes = {// TODO:
     attr: PropTypes.object,
 };
 
-export {switcherItem/*, activeItem*/};
+export { switcherItem/*, activeItem*/ };
 export default Switcher;
