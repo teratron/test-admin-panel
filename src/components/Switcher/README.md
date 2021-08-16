@@ -12,8 +12,7 @@ export default function App() {
 }
 ```
 
-## Configs
-
+## Config
 ```javascript
     const dataSet = {
         items: [
@@ -27,11 +26,16 @@ export default function App() {
         ]
     };
 ```
+```html
+<span class="active">Chart</span>
+<span>Report</span>
+```
+
 ### Config
 ```javascript
     const dataSet = {
         type: 'nav',
-        activeName: 'active',
+        activeName: 'tab-active',
         attr: {
             id: 'dashboard-tab',
             className: 'tab'
@@ -39,7 +43,7 @@ export default function App() {
         item: {
             type: 'a',
             attr: {
-                href: '/#content-header',
+                href: './#content-header',
                 className: 'tab-item'
             },
         },
@@ -49,24 +53,35 @@ export default function App() {
                 type: 'a',
                 title: 'Chart',
                 attr: {
-                    href: '/#content-header',
+                    href: './#content-header',
                     className: 'tab-item'
                 },
                 isActive: true
             },
             {
                 id: 'tab_report_id',
-                type: 'a',
                 title: 'Report',
                 attr: {
-                    href: '/#content-header',
                     className: 'tab-item'
-                },
+                }
+            },
+            {
+                id: 'tab_common_id',
+                type: 'b',
+                title: 'Common',
                 isDisable: true
             }
         ]
     };
 ```
+```html
+<nav id="dashboard-tab" class="tab">
+    <a href="./#content-header" class="tab-item tab-active">Chart</a>
+    <a href="./#content-header" class="tab-item">Report</a>
+    <b class="tab-item disabled">Common</b>
+</nav>
+```
+
 ### Config
 ```javascript
     const dataSet = {
