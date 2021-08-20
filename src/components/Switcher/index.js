@@ -2,8 +2,7 @@ import React, {useEffect, useState} from 'react';
 
 import PropTypes from 'prop-types';
 
-let switcherItem = {};
-
+let switcherItem = {}; // TODO:
 /*const ret = {
     ref: null,
     item: null,
@@ -15,12 +14,12 @@ let switcherItem = {};
 
 function Switcher(props) {
     //console.log('*+*+**++')
-    let prevRef/* = null*/;
+    let prevRef = null;
     const data = !props.data || (props.data && !props.data.items) ? {items: [{}]} : props.data;
     const activeName = data.activeName ? data.activeName : 'active';
     const disableName = data.disableName ? data.disableName : 'disabled';
     const [switcher] = useState(switcherParent());
-    const [active, setActive] = useState({
+    const [active, setActive] = useState({ // TODO:
         ref: null,
         item: null,
         prev: {
@@ -28,6 +27,12 @@ function Switcher(props) {
             item: null
         }
     });
+
+    useEffect(() => {
+        if (prevRef.current !== null && !prevRef.current.className.includes(activeName)) {
+            prevRef.current.classList.add(activeName);
+        }
+    }, [prevRef, activeName]);
 
     function switcherParent() {
         return data.type
@@ -39,6 +44,7 @@ function Switcher(props) {
     }
 
     function switcherChild() {
+        let hasActive;
         const ref = [];
         const child = [];
         const items = data?.item?.attr
@@ -49,7 +55,6 @@ function Switcher(props) {
                     : null
             }
             : null;
-        let hasActive = false;
 
         data.items.forEach((item, index) => {
             ref[index] = React.createRef();
@@ -76,14 +81,6 @@ function Switcher(props) {
 
         return child;
     }
-
-    useEffect(() => {
-        //console.log(prevRef);
-        if (/*prevRef !== null && */prevRef.current !== null && !prevRef.current.className.includes(activeName)) {
-            //console.log(prevRef);
-            prevRef.current.classList.add(activeName);
-        }
-    }, [prevRef, activeName]);
 
     function getAttr(items, item) {
         if (items !== null) {
@@ -122,7 +119,7 @@ function Switcher(props) {
 
         const addClassName = function (is, name) {
             if (item[is]) {
-                if (!item.attr.className/* === undefined*/) item.attr.className = name;
+                if (!item.attr.className) item.attr.className = name;
                 else if (!item.attr.className.includes(name)) item.attr.className += ' ' + name;
             }
         }
@@ -141,6 +138,7 @@ function Switcher(props) {
                 item: null
             }
         });
+
         if (ref !== prevRef) {
             prevRef.current.classList.remove(activeName);
             ref.current.classList.add(activeName);
@@ -153,7 +151,6 @@ function Switcher(props) {
             //setActive(switcherItem);
             //switcherItem = active;//Object.assign({}, item);
 
-
             if ('func' in item) item.func()//console.log(item.func());
         }
     }
@@ -165,7 +162,7 @@ function Switcher(props) {
     console.log('activeItem()');
 }*/
 
-Switcher.propTypes = {// TODO:
+Switcher.propTypes = { // TODO:
     activeName: PropTypes.string,
     disableName: PropTypes.string,
     isActive: PropTypes.bool,
