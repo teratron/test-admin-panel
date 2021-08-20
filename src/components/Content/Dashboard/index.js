@@ -64,7 +64,7 @@ const dashboardSwitcher = {
             type: 'a',
             title: 'Report2',
             attr: {
-                'data-open': '456',
+                //'data-open': '456',
                 //href: '/#content-header',
                 //className: 'tab-item cc'
             },

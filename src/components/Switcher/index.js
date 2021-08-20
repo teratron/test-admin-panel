@@ -39,7 +39,6 @@ function Switcher(props) {
     }
 
     function switcherChild() {
-        let hasActive = false;
         const ref = [];
         const child = [];
         const items = data?.item?.attr
@@ -50,6 +49,7 @@ function Switcher(props) {
                     : null
             }
             : null;
+        let hasActive = false;
 
         data.items.forEach((item, index) => {
             ref[index] = React.createRef();
@@ -107,23 +107,14 @@ function Switcher(props) {
                         item.attr.style = Object.assign({}, items.attr.style, item?.attr?.style);
                         break;
                     default:
-                        if (item?.attr?.[key]) {
-                            break;
-                        }
+                        if (item?.attr?.[key]) break;
                         if (!item.attr) {
-
-                        } else if (!item.attr[key]) {
-
+                            Object.defineProperty(item, 'attr', {
+                                value: {},
+                                writable: true
+                            });
                         }
                         item.attr[key] = items.attr[key];
-                        console.log(item?.attr, item.attr?.[key], key);
-                        //if (attr[key]) {
-                        /*if (!item.attr || (item.attr && !item.attr[key])) {
-                            console.log(item.attr, item.attr[key], key);
-                            //item.attr.prototype[key] = attr[key];
-                            item.attr[key] = attr[key];
-                        }*/
-                        //}
                         break;
                 }
             });
