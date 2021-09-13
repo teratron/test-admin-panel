@@ -9,16 +9,14 @@
     min-height: 100vh;
 }
 
-
-/**********************************************************
- Responsive
- **********************************************************/
+ /*** Responsive ***/
 @media only screen {
     @media (orientation: landscape) {
+    }
 
+    @media (orientation: portrait) {
     }
 }
-
 
 /* 16/9...16/16 */
 @media only screen and (orientation: landscape) and (max-aspect-ratio: 16/9) {
@@ -50,25 +48,15 @@
     html {
         font-size: 7px;
     }
-    .content-slide > .body {
-        padding-bottom: 2rem;
-    }
-    #speaker .photo img {
-        width: auto;
-        height: 80vh;
-    }
 }
 
 
 /*** Mobile ***/
 @media only screen and (max-width: 600px) and (orientation: portrait) {
-
 }
 
 @media only screen and (max-width: 500px) {
-
 }
 
 @media only screen and (max-width: 400px) {
-
 }
