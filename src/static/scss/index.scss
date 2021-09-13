@@ -8,3 +8,67 @@
 #root {
     min-height: 100vh;
 }
+
+
+/**********************************************************
+ Responsive
+ **********************************************************/
+@media only screen {
+    @media (orientation: landscape) {
+
+    }
+}
+
+
+/* 16/9...16/16 */
+@media only screen and (orientation: landscape) and (max-aspect-ratio: 16/9) {
+}
+
+/* =16/9...16/1 */
+@media only screen and (orientation: landscape) and (min-aspect-ratio: 16/9) {
+}
+
+@media only screen and (orientation: landscape) and (min-aspect-ratio: 17/9) {
+}
+
+/* 2/1 */
+@media only screen and (orientation: landscape) and (min-aspect-ratio: 18/9) {
+}
+
+@media only screen and (orientation: landscape) and (min-aspect-ratio: 19/9) {
+}
+
+@media only screen and (orientation: landscape) and (min-aspect-ratio: 20/9) {
+}
+
+@media only screen and (orientation: landscape) and (min-aspect-ratio: 21/9) {
+}
+
+
+/*** Desktop ***/
+@media only screen and (max-height: 700px) and (orientation: landscape) {
+    html {
+        font-size: 7px;
+    }
+    .content-slide > .body {
+        padding-bottom: 2rem;
+    }
+    #speaker .photo img {
+        width: auto;
+        height: 80vh;
+    }
+}
+
+
+/*** Mobile ***/
+@media only screen and (max-width: 600px) and (orientation: portrait) {
+
+}
+
+@media only screen and (max-width: 500px) {
+
+}
+
+@media only screen and (max-width: 400px) {
+
+}
