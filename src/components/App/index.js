@@ -8,7 +8,7 @@ import './app.scss';
 function App() {
     return (
         <React.Suspense fallback={<Spinner/>}>
-            <div className="app">
+            <div className="app _marker">
                 <Header/>
                 <Main/>
             </div>

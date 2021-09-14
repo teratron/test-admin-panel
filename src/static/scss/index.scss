@@ -3,18 +3,25 @@
 @import 'card';
 @import 'tab';
 @import 'themes/default';
+@import 'debug';
 
 /*** Root ***/
 #root {
     min-height: 100vh;
 }
 
- /*** Responsive ***/
+/*** Responsive ***/
 @media only screen {
     @media (orientation: landscape) {
+        ._marker:after {
+            content: "landscape"
+        }
     }
 
     @media (orientation: portrait) {
+        ._marker:after {
+            content: "portrait"
+        }
     }
 }
 
