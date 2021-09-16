@@ -151,7 +151,8 @@ function Switcher(props) {
             //setActive(switcherItem);
             //switcherItem = active;//Object.assign({}, item);
 
-            if ('func' in item) item.func()//console.log(item.func());
+            //if ('func' in item) item.func()//console.log(item.func());
+            if (item?.func) item.func()
         }
     }
 
