@@ -3,14 +3,6 @@ import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 
 let switcherItem = {}; // TODO:
-/*const ret = {
-    ref: null,
-    item: null,
-    prev: {
-        ref: null,
-        item: null
-    }
-};*/
 
 function Switcher(props) {
     //console.log('*+*+**++')

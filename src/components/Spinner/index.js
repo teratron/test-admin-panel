@@ -1,8 +1,12 @@
 import React from 'react';
 
+import './spinner.scss';
+
 function Spinner() {
     return (
-        <h1>LOADING...</h1>
+        <div className="spinner">
+            <h1>LOADING...</h1>
+        </div>
     );
 }
 

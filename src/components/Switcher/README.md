@@ -12,7 +12,7 @@ export default function App() {
 }
 ```
 
-## Config
+### Config
 ```javascript
     const dataSet = {
         items: [
