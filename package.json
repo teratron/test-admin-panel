@@ -1,6 +1,6 @@
 {
   "name": "test-admin-panel",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "description": "Admin Panel - test task using ReactJS",
   "main": "index.js",
