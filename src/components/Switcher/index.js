@@ -123,8 +123,8 @@ function Switcher(props) {
 
     function handleClick(ref, item) {
         setActive({
-            ref: ref,
-            item: item,
+            ref,
+            item,
             prev: {
                 ref: null,
                 item: null
