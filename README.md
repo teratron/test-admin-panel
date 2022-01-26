@@ -8,8 +8,8 @@ Create a ReactJS SPA, some typical backend admin UI.
 
 - Must use the latest ReactJS.
 - Mock web-service request as needed. Assume API response delay ranging from 2ms to 15s.
-- Use your favorite set of tools
-- We expect best practices in your code )
+- Use your favorite set of tools.
+- We expect best practices in your code.
 
 ## The UI
 
