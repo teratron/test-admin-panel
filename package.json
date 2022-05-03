@@ -1,6 +1,6 @@
 {
   "name": "test-admin-panel",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
   "description": "Admin Panel - test task using ReactJS",
   "main": "index.js",
@@ -21,19 +21,19 @@
     "url": "https://github.com/teratron/test-admin-panel/issues"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.35",
-    "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "@fortawesome/react-fontawesome": "^0.1.15",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^12.1.1",
-    "@testing-library/user-event": "^13.2.1",
-    "node-sass": "^6.0.1",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.2",
-    "react-chartjs-2": "^3.0.5",
-    "react-dom": "^17.0.2",
-    "react-scripts": "^4.0.3",
-    "web-vitals": "^2.1.0"
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
+    "node-sass": "^7.0.1",
+    "prop-types": "^15.8.1",
+    "react-chartjs-2": "^4.1.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.1.1",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
