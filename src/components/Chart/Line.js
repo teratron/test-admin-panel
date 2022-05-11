@@ -10,7 +10,7 @@ import {
     Title,
     Tooltip,
 } from 'chart.js';
-import {Line} from 'react-chartjs-2';
+import {Chart} from 'react-chartjs-2';
 
 ChartJS.register(
     CategoryScale,
@@ -82,7 +82,7 @@ const options = {
 };*/
 
 function ChartLine() {
-    return <Line data={data} options={options} type='line'/>
+    return <Chart data={data} options={options} type='line'/>
 }
 
 export default ChartLine;
