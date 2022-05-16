@@ -28,13 +28,15 @@
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^14.1.1",
     "chart.js": "^3.7.1",
-    "node-sass": "^7.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-chartjs-2": "^4.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "sass": "^1.51.0"
   },
   "scripts": {
     "start": "react-scripts start",
