@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Spinner from '../Spinner';
-import Header from '../Header';
-import Main from '../Main';
-import './app.scss';
+import Spinner from './components/Spinner';
+import Header from './components/Header';
+import Main from './components/Main';
+import './static/scss/app.scss';
 
 function App() {
     return (
