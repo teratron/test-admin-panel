@@ -20,6 +20,7 @@
   "bugs": {
     "url": "https://github.com/teratron/test-admin-panel/issues"
   },
+  "homepage": "https://teratron.github.io/test-admin-panel",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
